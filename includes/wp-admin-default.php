@@ -4,14 +4,16 @@ function cmk_custom_dashboard_widget() {
  }
 
 function cmk_add_custom_dashboard_widget() {
-    wp_add_dashboard_widget('custom_dashboard_widget', 'Contactar con Closemarketing', 'custom_dashboard_widget');}
-add_action('wp_dashboard_setup', 'add_custom_dashboard_widget');// disable default dashboard widgets
+  wp_add_dashboard_widget('cmk_custom_dashboard_widget', 'Contactar con Closemarketing', 'cmk_custom_dashboard_widget');}
+  add_action('wp_dashboard_setup', 'cmk_add_custom_dashboard_widget');// disable default dashboard widgets
 
 function cmk_disable_default_dashboard_widgets() {
      remove_meta_box('dashboard_plugins', 'dashboard', 'core');
      remove_meta_box('dashboard_primary', 'dashboard', 'core');
      remove_meta_box('dashboard_secondary', 'dashboard', 'core');     // disable Simple:Press dashboard widget
-     remove_meta_box('sf_announce', 'dashboard', 'normal');} add_action('admin_menu', 'disable_default_dashboard_widgets');
+     remove_meta_box('sf_announce', 'dashboard', 'normal');
+} 
+add_action('admin_menu', 'cmk_disable_default_dashboard_widgets');
 
 add_filter('admin_footer_text', 'cmk_remove_footer_admin');
 function cmk_remove_footer_admin () {
@@ -158,7 +160,7 @@ function cmk_dj_postsCustomColumn($column_name, $id)
  */
 
 // Add custom post types count action to WP Dashboard
-add_action('dashboard_glance_items', 'custom_posttype_glance_items');
+add_action('dashboard_glance_items', 'cmk_custom_posttype_glance_items');
 
 // Showing all custom posts count
 function cmk_custom_posttype_glance_items()
