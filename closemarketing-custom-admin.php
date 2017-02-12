@@ -12,8 +12,18 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */
 
+//Loads translation
+load_plugin_textdomain('closemarketing-custom-admin', false, dirname( plugin_basename( __FILE__ ) ). '/languages/');
+
+define( 'RIBU_RESIZE_WIDTH', 1920 ); //1000 px wide
+define( 'RIBU_RESIZE_HEIGHT', 1920 ); //900 px high
+
+define( 'RIBU_RESIZE_QUALITY', 75 ); //0-100, 100 being high quality
+define( 'RIBU_MAX_UPLOAD_SIZE', '10971520b' ); //size in bytes
+
 //* Includes General for Closemarketing
 include('includes/clean-url-seo.php'); //cleans stop words from slug
 include('includes/one-category.php'); //only allows to select one category_archive_meta
-include('includes/wp-admin-default.php'); // Personalización Closemarketing Dashboard
-include('includes/wp-plugins-recommended.php');
+include('includes/wp-admin-default.php'); // Custom Closemarketing Dashboard
+include('includes/wp-plugins-recommended.php'); //Recommends plugins
+include('includes/resize-before-upload.php'); //Resize big images to normal size
