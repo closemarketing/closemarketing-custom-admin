@@ -127,18 +127,18 @@ function cmk_posts_status_color() {
 //Imagenes Miniatura
 if (function_exists('add_theme_support'))
 {
-    add_filter('manage_posts_columns', 'dj_postsColumns', 5);
-    add_filter('manage_pages_columns', 'dj_postsColumns', 5);
+    add_filter('manage_posts_columns', 'cmk_postsColumns', 5);
+    add_filter('manage_pages_columns', 'cmk_postsColumns', 5);
 
-    add_action('manage_posts_custom_column', 'dj_postsCustomColumn', 5, 2);
-    add_action('manage_pages_custom_column', 'dj_postsCustomColumn', 5, 2);
+    add_action('manage_posts_custom_column', 'cmk_postsCustomColumn', 5, 2);
+    add_action('manage_pages_custom_column', 'cmk_postsCustomColumn', 5, 2);
 }
-function cmk_dj_postsColumns($columns)
+function cmk_postsColumns($columns)
 {
     $columns['dj_post_thumbnail'] = __('Thumbnail','closemarketing-custom-admin');
     return ($columns);
 }
-function cmk_dj_postsCustomColumn($column_name, $id)
+function cmk_postsCustomColumn($column_name, $id)
 {
     if ($column_name === 'dj_post_thumbnail')
         echo the_post_thumbnail(array(125, 80));
@@ -206,7 +206,7 @@ function cmk_custom_posttype_glance_items()
 }
 
 //* Allow SVG
-function cmk_cmk_mime_types($mimes) {
+function cmk_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   return $mimes;
 }
