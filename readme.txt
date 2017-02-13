@@ -3,7 +3,7 @@ Contributors: closemarketing, davidperez
 Tags: genesis,
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 3.0
-Tested up to: 4.4
+Tested up to: 4.7.2
 Stable tag: 1.0
 Version: 1.0
 
@@ -15,6 +15,7 @@ Makes some changes in WordPress admin for better customization in Closemarketing
 - Unpublished posts in other colour.
 - Clean seo url permalinks.
 - Custom info.
+- Resize big images before upload.
 
 
 Others Plugins:

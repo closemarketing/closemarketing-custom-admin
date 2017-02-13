@@ -18,7 +18,7 @@ load_plugin_textdomain('closemarketing-custom-admin', false, dirname( plugin_bas
 define( 'RIBU_RESIZE_WIDTH', 1920 ); //1000 px wide
 define( 'RIBU_RESIZE_HEIGHT', 1920 ); //900 px high
 
-define( 'RIBU_RESIZE_QUALITY', 75 ); //0-100, 100 being high quality
+define( 'RIBU_RESIZE_QUALITY', 70 ); //0-100, 100 being high quality
 define( 'RIBU_MAX_UPLOAD_SIZE', '10971520b' ); //size in bytes
 
 //* Includes General for Closemarketing
