@@ -1,11 +1,11 @@
 === Closemarketing Custom Admin ===
 Contributors: closemarketing, davidperez
-Tags: genesis,
+Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
-Requires at least: 3.0
+Requires at least: 4.0
 Tested up to: 4.7.2
-Stable tag: 1.0
-Version: 1.0
+Stable tag: 0.1
+Version: 0.1
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -13,12 +13,11 @@ Custom admin enhacements for Closemarketing Webs in WordPress.
 Makes some changes in WordPress admin for better customization in Closemarketing Webs:
 - Custom logo.
 - Unpublished posts in other colour.
-- Clean seo url permalinks.
 - Custom info.
-- Resize big images before upload.
 
 
 Others Plugins:
+
 - [Gravity Forms CRM Addon](http://codecanyon.net/item/gravity-forms-crm-addon/10521695)
 - [Gravity Forms in Spanish](https://wordpress.org/plugins/gravityforms-es/)
 - [Clean HTML in Editor](https://wordpress.org/plugins/clean-html/)
@@ -36,7 +35,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
-= 1.0 =
+= 0.1 =
 *   First released.
 
 == Links ==
