@@ -89,7 +89,7 @@ function cmk_dashboard_custom_feed_output() {
      echo '<div class="rss-widget">';
      wp_widget_rss_output(array(
           'url' => 'http://feeds.feedburner.com/closemarketing',
-          'title' => 'Actualidad Closemarketing',
+          'title' => __('Closemarketing News','closemarketing-custom-admin'),
           'items' => 2,
           'show_summary' => 1,
           'show_author' => 0,

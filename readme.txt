@@ -4,16 +4,19 @@ Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
 Tested up to: 4.7.2
-Stable tag: 0.1
-Version: 0.1
+Stable tag: 0.2
+Version: 0.2
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
 == Description ==
 Makes some changes in WordPress admin for better customization in Closemarketing Webs:
+
 - Custom logo.
 - Unpublished posts in other colour.
 - Custom info.
+- Resizes images before upload.
+- Clean stop words from url.
 
 
 Others Plugins:
