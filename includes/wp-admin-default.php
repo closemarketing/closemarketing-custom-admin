@@ -60,7 +60,7 @@ function cmk_change_bar_color() {
 ?>
   <style>
   #wpadminbar{
-  background: #85b83c !important;
+  background: #537326 !important;
   }
   #adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head, #adminmenu .wp-menu-arrow, #adminmenu .wp-menu-arrow div, #adminmenu li.current a.menu-top, #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu, .folded #adminmenu li.current.menu-top, .folded #adminmenu li.wp-has-current-submenu {
     background: #85b83c !important;
