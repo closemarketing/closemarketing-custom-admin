@@ -57,16 +57,27 @@ function cmk_custom_login_logo() {
 add_action('wp_head', 'cmk_change_bar_color');
 add_action('admin_head', 'cmk_change_bar_color');
 function cmk_change_bar_color() {
+
+  if($_SERVER['HTTP_HOST']=='localhost') {
+    $color = 'red';  //local
+  } else {
+    $tldcal = explode(".", $_SERVER['HTTP_HOST']);
+    $tld = end($tldcal);
+    if($tld=='loc'||$tld=='dev') 
+      $color = 'red';  //local
+    else 
+      $color = '#85b83c'; //live
+  }
 ?>
   <style>
   #wpadminbar{
-  background: #537326 !important;
+  background: <?php echo $color;?> !important;
   }
   #adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head, #adminmenu .wp-menu-arrow, #adminmenu .wp-menu-arrow div, #adminmenu li.current a.menu-top, #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu, .folded #adminmenu li.current.menu-top, .folded #adminmenu li.wp-has-current-submenu {
-    background: #85b83c !important;
+    background: <?php echo $color;?> !important;
   }
-  #adminmenu .wp-submenu a:focus, #adminmenu .wp-submenu a:hover, #adminmenu a:hover, #adminmenu li.menu-top>a:focus {
-    color: #85b83c !important;
+  #adminmenu .wp-submenu a:focus, #adminmenu .wp-submenu a:hover, #adminmenu a:hover, #adminmenu li.menu-top>a:focus,#adminmenu li.menu-top:hover, #adminmenu li.opensub>a.menu-top, #adminmenu li>a.menu-top:focus, #adminmenu li a:focus div.wp-menu-image:before, #adminmenu li.opensub div.wp-menu-image:before, #adminmenu li:hover div.wp-menu-image:before {
+    color: <?php echo $color;?> !important;
   }
   </style>
 <?php
