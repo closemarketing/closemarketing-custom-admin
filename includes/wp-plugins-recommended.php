@@ -16,6 +16,11 @@ function cmk_register_required_plugins() {
 				'slug'      => 'meta-box',
 				'required'  => true,
 		),
+        array(
+                'name'      => 'Widgets SO genesis',
+                'slug'      => 'widgets-so-genesis',
+                'required'  => true,
+        ),
 
         // Include WP Animations CSS.
         array(
@@ -124,7 +129,11 @@ function cmk_register_required_plugins() {
             'slug'      => 'svg-support',
             'required'  => true,
         ),
-
+        array(
+            'name'      => 'WP Sync DB',
+            'slug'      => 'wp-sync-db',
+            'source'    => 'https://github.com/wp-sync-db/wp-sync-db/archive/master.zip',
+        ),
 
 
 	);
