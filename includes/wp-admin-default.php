@@ -1,11 +1,23 @@
 <?php
+/**
+ * Admin defaults
+ *
+ * Has functions customize the WordPress Admins
+ *
+ * @author   closemarketing
+ * @category Functions
+ * @package  Custom Closemarketing Admin
+ */
+
+//* Customizes Dashboard
 function cmk_custom_dashboard_widget() {
      echo '<p>Contacto: <strong>858 958 383</strong>. <a href="mailto:info@closemarketing.es" target="_blank">Correo</a> | <a href="https://www.closemarketing.es/ayuda/" target="_blank">Tutoriales y ayuda</a> | <a href="https://www.facebook.com/closemarketing" target="_blank">Facebook</a></p>';
  }
 
 function cmk_add_custom_dashboard_widget() {
-  wp_add_dashboard_widget('cmk_custom_dashboard_widget', 'Contactar con Closemarketing', 'cmk_custom_dashboard_widget');}
-  add_action('wp_dashboard_setup', 'cmk_add_custom_dashboard_widget');// disable default dashboard widgets
+  wp_add_dashboard_widget('cmk_custom_dashboard_widget', 'Contactar con Closemarketing', 'cmk_custom_dashboard_widget');
+}
+add_action('wp_dashboard_setup', 'cmk_add_custom_dashboard_widget');// disable default dashboard widgets
 
 function cmk_disable_default_dashboard_widgets() {
      remove_meta_box('dashboard_plugins', 'dashboard', 'core');
@@ -41,16 +53,16 @@ add_filter('tiny_mce_before_init', 'cmk_change_mce_options');
 //Configurar campos Author
 add_filter('user_contactmethods','cmk_remove_profile_fields', 10, 1);
 function cmk_remove_profile_fields($contactmethods) {
-  // Añade Twitter
-  $contactmethods['twitter'] = 'Twitter';
-  // Añade Facebook
-  $contactmethods['facebook'] = 'Facebook';
-  $contactmethods['googleprofile'] = 'Google Profile URL';
-  $contactmethods['googleprofileemail'] = 'Google Profile Email';
-     unset($contactmethods['aim']);
-     unset($contactmethods['jabber']);
-     unset($contactmethods['yim']);
-     return $contactmethods;
+    // Añade Twitter
+    $contactmethods['twitter'] = 'Twitter';
+    // Añade Facebook
+    $contactmethods['facebook'] = 'Facebook';
+    $contactmethods['googleprofile'] = 'Google Profile URL';
+    $contactmethods['googleprofileemail'] = 'Google Profile Email';
+    unset($contactmethods['aim']);
+    unset($contactmethods['jabber']);
+    unset($contactmethods['yim']);
+    return $contactmethods;
 }
 //cambiar logo administración y entrada
 add_action('login_head', 'cmk_custom_login_logo');
@@ -103,7 +115,7 @@ function cmk_change_bar_color() {
 }
 
 
-// Quitar menu Editor
+// Disable menu Editor
 add_action('_admin_menu', 'cmk_remove_editor_menu', 1);
 function cmk_remove_editor_menu() {
   remove_action('admin_menu', '_add_themes_utility_last', 101);
