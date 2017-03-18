@@ -49,6 +49,12 @@ function cmk_register_required_plugins() {
             'slug'      => 'cookie-notice',
             'required'  => false,
         ),
+        
+        array(
+            'name'      => 'Easy WP SMTP',
+            'slug'      => 'easy-wp-smtp',
+            'required'  => false,
+        ),
 
         // Include Facebook.
         array(
