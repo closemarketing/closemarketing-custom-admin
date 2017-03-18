@@ -4,8 +4,8 @@ Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
 Tested up to: 4.7.2
-Stable tag: 0.2.2
-Version: 0.2.2
+Stable tag: 0.3
+Version: 0.3
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -19,6 +19,7 @@ Makes some changes in WordPress admin for better customization in Closemarketing
 - Clean stop words from url.
 - Count Entries from Post Types in Dashboard.
 - Custom admin colour bar (diferent in local).
+- Sanitize filenames for better support in Safari.
 
 
 Others Plugins:
@@ -40,6 +41,18 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
+= 0.3 =
+*   Sanitize filenames for better support in Safari.
+
+= 0.2.2 =
+*   Added admin bar colour in local.
+
+= 0.2.1 =
+*   Added admin bar colour.
+
+= 0.2 =
+*   Added resize images and clean url seo.
+
 = 0.1 =
 *   First released.
 
