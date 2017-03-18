@@ -20,9 +20,17 @@ function cmk_remove_footer_admin () {
 echo "Closemarketing - Dise&ntilde;o y Marketing 2017. Realizado sobre Gestor Contenidos Wordpress.";
 }
 
-//Deshabilita el link en la imagen
-update_option('image_default_link_type','none');
+//Disables image link
+function wpb_imagelink_setup() {
+  $image_set = get_option( 'image_default_link_type' );
+  
+  if ($image_set !== 'none') {
+    update_option('image_default_link_type', 'none');
+  }
+}
+add_action('admin_init', 'wpb_imagelink_setup', 10);
 
+//Customize TinyMCE
 function cmk_change_mce_options( $init ) {
  $init['block_formats'] = 'Párrafo=p;Título 2=h2;Título 3=h3;Título 4=h4;Título 5=h5';
  $init['theme_advanced_disable'] = 'forecolor';
@@ -52,6 +60,17 @@ function cmk_custom_login_logo() {
         p.galogin-powered {display: none;}
     </style>';
 }
+
+//* Remove accents in filenames
+function cmk_sanitize_filename_on_upload($filename) {
+   $ext = end(explode('.',$filename));
+   // Reemplazar todos los caracteres extranos.
+   $sanitized = preg_replace('/[^a-zA-Z0-9-_.]/','', substr($filename, 0, -(strlen($ext)+1)));
+   // Replace dots inside filename
+   $sanitized = str_replace('.','-', $sanitized);
+   return strtolower($sanitized.'.'.$ext);
+}
+add_filter('sanitize_file_name', 'cmk_sanitize_filename_on_upload', 10);
 
 //* Change WordPress Admin bar color
 add_action('wp_head', 'cmk_change_bar_color');
