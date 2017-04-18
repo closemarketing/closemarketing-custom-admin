@@ -1,0 +1,306 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-03-23 16:54+0100\n"
+"PO-Revision-Date: 2017-03-23 16:54+0100\n"
+"Last-Translator: David <david@closemarketing.es>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;__;_n\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: class-tgm-plugin-activation.php:334
+msgid "Install Required Plugins"
+msgstr "Instalar Plugins requeridos"
+
+#: class-tgm-plugin-activation.php:335
+msgid "Install Plugins"
+msgstr "Instalar Plugins"
+
+#: class-tgm-plugin-activation.php:337
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "Instalando plugin: %s"
+
+#: class-tgm-plugin-activation.php:339
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr "Actualizando plugin: %s"
+
+#: class-tgm-plugin-activation.php:340
+msgid "Something went wrong with the plugin API."
+msgstr "Algo no ha funcionado con la API del plugin."
+
+#: class-tgm-plugin-activation.php:392
+msgid "Return to Required Plugins Installer"
+msgstr "Volver al Instalador de plugins requeridos"
+
+#: class-tgm-plugin-activation.php:393
+msgid "Return to the Dashboard"
+msgstr "Volver al escritorio"
+
+#: class-tgm-plugin-activation.php:394 class-tgm-plugin-activation.php:3252
+msgid "Plugin activated successfully."
+msgstr "Plugin activado correctamente."
+
+#: class-tgm-plugin-activation.php:395 class-tgm-plugin-activation.php:3045
+msgid "The following plugin was activated successfully:"
+msgstr "El siguiente plugin se ha activado correctamente:"
+
+#: class-tgm-plugin-activation.php:397
+#, fuzzy, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "Sin acción. El plugin %1$s ya se encuentra activo."
+
+#: class-tgm-plugin-activation.php:399
+#, fuzzy, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+"Plugin no activado. Este tema necesita una versión superior de %s. Por "
+"favor, actualiza el plugin."
+
+#: class-tgm-plugin-activation.php:401
+#, fuzzy, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Todos los plugins se instalaron y activaron correctamente. %1$s"
+
+#: class-tgm-plugin-activation.php:402
+msgid "Dismiss this notice"
+msgstr "Descartar este aviso"
+
+#: class-tgm-plugin-activation.php:403
+#, fuzzy
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+"Hay uno o más plugins requeridos o recomendados para instalar, actualizar o "
+"activar."
+
+#: class-tgm-plugin-activation.php:404
+#, fuzzy
+msgid "Please contact the administrator of this site for help."
+msgstr "Para más ayuda, contacta con el administrador de la web."
+
+#: class-tgm-plugin-activation.php:2075
+#, php-format
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: class-tgm-plugin-activation.php:2366
+msgid "Required"
+msgstr "Requerido"
+
+#: class-tgm-plugin-activation.php:2369
+msgid "Recommended"
+msgstr "Recomendado"
+
+#: class-tgm-plugin-activation.php:2385
+msgid "WordPress Repository"
+msgstr "Repositorio WordPress"
+
+#: class-tgm-plugin-activation.php:2388
+msgid "External Source"
+msgstr "Fuente externa"
+
+#: class-tgm-plugin-activation.php:2391
+msgid "Pre-Packaged"
+msgstr "Pre-empaquetado"
+
+#: class-tgm-plugin-activation.php:2408
+msgid "Not Installed"
+msgstr "No instalado"
+
+#: class-tgm-plugin-activation.php:2412
+msgid "Installed But Not Activated"
+msgstr "Instalados pero no activados"
+
+#: class-tgm-plugin-activation.php:2414
+msgid "Active"
+msgstr "Activo"
+
+#: class-tgm-plugin-activation.php:2420
+msgid "Required Update not Available"
+msgstr "La actualización requerida no está disponible"
+
+#: class-tgm-plugin-activation.php:2423
+msgid "Requires Update"
+msgstr "Necesita actualización"
+
+#: class-tgm-plugin-activation.php:2426
+msgid "Update recommended"
+msgstr "Actualización recomendada"
+
+#: class-tgm-plugin-activation.php:2481
+#, fuzzy, php-format
+#| msgid "To Install <span class=\"count\">(%s)</span>"
+msgid "All <span class=\"count\">(%s)</span>"
+msgstr "Para instalar <span class=\"count\">(%s)</span>"
+
+#: class-tgm-plugin-activation.php:2485
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgstr "Para instalar <span class=\"count\">(%s)</span>"
+
+#: class-tgm-plugin-activation.php:2489
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgstr "Actualización Disponible <span class=\"count\">(%s)</span>"
+
+#: class-tgm-plugin-activation.php:2493
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgstr "Para Activar <span class=\"count\">(%s)</span>"
+
+#: class-tgm-plugin-activation.php:2583
+msgid "Installed version:"
+msgstr "Versión instalada:"
+
+#: class-tgm-plugin-activation.php:2591
+msgid "Minimum required version:"
+msgstr "Versión mínima requerida:"
+
+#: class-tgm-plugin-activation.php:2603
+msgid "Available version:"
+msgstr "Versión disponible:"
+
+#: class-tgm-plugin-activation.php:2640
+msgid "Plugin"
+msgstr "Plugin"
+
+#: class-tgm-plugin-activation.php:2641
+msgid "Source"
+msgstr "Fuente"
+
+#: class-tgm-plugin-activation.php:2642
+msgid "Type"
+msgstr "Tipo"
+
+#: class-tgm-plugin-activation.php:2646
+msgid "Version"
+msgstr "Versión"
+
+#: class-tgm-plugin-activation.php:2647
+msgid "Status"
+msgstr "Estado"
+
+#: class-tgm-plugin-activation.php:2696
+#, php-format
+msgid "Install %2$s"
+msgstr "Instalar %2$s"
+
+#: class-tgm-plugin-activation.php:2701
+#, php-format
+msgid "Update %2$s"
+msgstr "Actualizar %2$s"
+
+#: class-tgm-plugin-activation.php:2707
+#, php-format
+msgid "Activate %2$s"
+msgstr "Activar %2$s"
+
+#: class-tgm-plugin-activation.php:2810
+msgid "Install"
+msgstr "Instalar"
+
+#: class-tgm-plugin-activation.php:2816
+msgid "Update"
+msgstr "Actualizar"
+
+#: class-tgm-plugin-activation.php:2819
+msgid "Activate"
+msgstr "Activar"
+
+#: class-tgm-plugin-activation.php:2850
+#, fuzzy
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+"No se seleccionaron plugins para ser instalados. No se ha realizado ninguna "
+"acción."
+
+#: class-tgm-plugin-activation.php:2852
+#, fuzzy
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+"Los plugins seleccionados ya están actualizados. Ninguna acción realizada."
+
+#: class-tgm-plugin-activation.php:2893
+#, fuzzy
+msgid "No plugins are available to be installed at this time."
+msgstr "No hay plugins disponibles para instalar ahora."
+
+#: class-tgm-plugin-activation.php:2895
+#, fuzzy
+msgid "No plugins are available to be updated at this time."
+msgstr "No hay plugins disponibles para actualizar en este momento."
+
+#: class-tgm-plugin-activation.php:3251
+msgid "Plugin activation failed."
+msgstr "La activación del plugin ha fallado."
+
+#: class-tgm-plugin-activation.php:3591
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "Actualizando plugin %1$s (%2$d/%3$d)"
+
+#: class-tgm-plugin-activation.php:3594
+#, fuzzy, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+"Se produjo un error durante la instalación de %1$s: <strong>%2$s</strong>."
+
+#: class-tgm-plugin-activation.php:3596
+#, fuzzy, php-format
+msgid "The installation of %1$s failed."
+msgstr "La instalación de %1$s ha fallado."
+
+#: class-tgm-plugin-activation.php:3600
+#, fuzzy
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+"El proceso de instalación y activación ha comenzado. Este proceso puede "
+"tardar un tiempo en algunos servidores, por favor sé paciente."
+
+#: class-tgm-plugin-activation.php:3602
+#, fuzzy, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s instalado y activado correctamente."
+
+#: class-tgm-plugin-activation.php:3603
+#, fuzzy
+msgid "All installations and activations have been completed."
+msgstr "Todas las instalaciones y activaciones han sido completadas."
+
+#: class-tgm-plugin-activation.php:3605
+#, fuzzy, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Instalación y activación de Plugin %1$s (%2$d/%3$d)"
+
+#: class-tgm-plugin-activation.php:3608
+#, fuzzy
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+"El proceso de instalación ha comenzado. Este proceso puede tardar un tiempo "
+"en algunos servidores, por favor sé paciente."
+
+#: class-tgm-plugin-activation.php:3611
+#, fuzzy
+msgid "All installations have been completed."
+msgstr "Todas las instalaciones se completaron."
+
+#: class-tgm-plugin-activation.php:3613
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Instalando el Plugin %1$s (%2$d/%3$d) "
