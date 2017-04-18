@@ -10,40 +10,43 @@ function cmk_register_required_plugins() {
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
-		// Metabox
+
 		array(
 				'name'      => 'Meta box',
 				'slug'      => 'meta-box',
 				'required'  => true,
 		),
+
         array(
                 'name'      => 'Widgets SO genesis',
                 'slug'      => 'widgets-so-genesis',
                 'required'  => true,
         ),
 
-        // Include WP Animations CSS.
         array(
-            'name'      => 'Animate It!',
-            'slug'      => 'animate-it',
+            'name'      => 'Google Apps Login',
+            'slug'      => 'google-apps-login',
             'required'  => false,
         ),
 
-        // Include Images.
+        array(
+            'name'      => 'Maintenance',
+            'slug'      => 'maintenance',
+            'required'  => false,
+        ),
+
         array(
             'name'      => 'EWWW Image Optimizer',
             'slug'      => 'ewww-image-optimizer',
             'required'  => false,
         ),
 
-        // Include Broken Link Checker.
         array(
             'name'      => 'Broken Link Checker',
             'slug'      => 'broken-link-checker',
             'required'  => true,
         ),
 
-        // Include Cookie Notice.
         array(
             'name'      => 'Cookie Notice',
             'slug'      => 'cookie-notice',
@@ -56,7 +59,6 @@ function cmk_register_required_plugins() {
             'required'  => false,
         ),
 
-        // Include Facebook.
         array(
             'name'      => 'Facebook',
             'slug'      => 'facebook',
