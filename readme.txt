@@ -44,6 +44,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 = 0.3.1 =
 *   Updated list of plugins.
 *   Translated library plugins recommended to Spanish.
+*   Implemented Composer for libraries.
 
 = 0.3 =
 *   Sanitize filenames for better support in Safari.
