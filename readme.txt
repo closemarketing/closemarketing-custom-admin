@@ -3,9 +3,9 @@ Contributors: closemarketing, davidperez
 Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
-Tested up to: 4.7.3
-Stable tag: 0.3.1
-Version: 0.3.1
+Tested up to: 4.8
+Stable tag: 0.3.2
+Version: 0.3.2
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
