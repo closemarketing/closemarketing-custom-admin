@@ -59,11 +59,6 @@ function cmk_register_required_plugins() {
             'required'  => false,
         ),
 
-        array(
-            'name'      => 'Facebook',
-            'slug'      => 'facebook',
-            'required'  => false,
-        ),
 
         array(
             'name'      => 'Google Analytics by MonsterInsights',
@@ -90,23 +85,17 @@ function cmk_register_required_plugins() {
         ),
 
         array(
-            'name'      => 'Autoptimize',
-            'slug'      => 'autoptimize',
+            'name'      => 'WP Fastest Cache',
+            'slug'      => 'wp-fastest-cache',
             'required'  => false,
         ),
 
-        array(
-            'name'      => 'WP Super Cache',
-            'slug'      => 'wp-super-cache',
-            'required'  => false,
-        ),
-
-    		array(
-    			'name'        => 'WordPress SEO by Yoast',
-    			'slug'        => 'wordpress-seo',
-    			'is_callable' => 'wpseo_init',
-                'required'  => true,
-    		),
+		array(
+			'name'        => 'WordPress SEO by Yoast',
+			'slug'        => 'wordpress-seo',
+			'is_callable' => 'wpseo_init',
+            'required'  => true,
+		),
 
         array(
             'name'      => 'Genesis Translations',
@@ -161,7 +150,7 @@ function cmk_register_required_plugins() {
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
 		'parent_slug'  => 'plugins.php',            // Parent menu slug.
 		'capability'   => 'manage_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
-		'has_notices'  => true,                    // Show admin notices or not.
+		'has_notices'  => false,                    // Show admin notices or not.
 		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
 		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
 		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
