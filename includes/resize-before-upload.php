@@ -204,7 +204,7 @@ class CMK_Resize_Images_Before_Upload {
     
     function incompatible_browser(){
         
-        if (! preg_match("#Firefox|Chrome|iPad|iPhone|Opera#", $_SERVER['HTTP_USER_AGENT']) ){
+        if (! preg_match("#Firefox|Chrome|iPad|iPhone|Opera|Safari#", $_SERVER['HTTP_USER_AGENT']) ){
             return true;
         }
         

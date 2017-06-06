@@ -41,6 +41,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
+= 0.3.2 =
+*   Updated list of plugins.
+
 = 0.3.1 =
 *   Updated list of plugins.
 *   Translated library plugins recommended to Spanish.
