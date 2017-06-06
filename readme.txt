@@ -43,6 +43,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 == Changelog ==
 = 0.3.2 =
 *   Updated list of plugins.
+*   Added support to Safari.
 
 = 0.3.1 =
 *   Updated list of plugins.
