@@ -4,8 +4,8 @@ Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 0.3.2
-Version: 0.3.2
+Stable tag: 0.3.1
+Version: 0.3.1
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -41,14 +41,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
-= 0.3.2 =
-*   Updated list of plugins.
-*   Added support to Safari.
 
 = 0.3.1 =
 *   Updated list of plugins.
 *   Translated library plugins recommended to Spanish.
-*   Implemented Composer for libraries.
+*   Added support to Safari.
 
 = 0.3 =
 *   Sanitize filenames for better support in Safari.
