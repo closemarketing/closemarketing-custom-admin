@@ -67,7 +67,13 @@ function cmk_register_required_plugins() {
             'name'      => 'Broken Link Checker',
             'slug'      => 'broken-link-checker',
             'required'  => true,
-        ),                
+        ),   
+
+        array(
+            'name'      => 'Bot Block – Stop Spam Referrals in Google Analytics',
+            'slug'      => 'bot-block-stop-spam-google-analytics-referrals',
+            'required'  => true,
+        ),                    
     );
 
 //* Generic

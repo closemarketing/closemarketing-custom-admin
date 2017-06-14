@@ -42,13 +42,13 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 = 0.3.2 =
+*   Lists of plugins filtered with local and live.
 *   Updated list of plugins.
-*   Added support to Safari.
 
 = 0.3.1 =
 *   Updated list of plugins.
 *   Translated library plugins recommended to Spanish.
-*   Implemented Composer for libraries.
+*   Added support to Safari.
 
 = 0.3 =
 *   Sanitize filenames for better support in Safari.
