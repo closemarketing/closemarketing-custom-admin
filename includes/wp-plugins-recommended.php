@@ -9,7 +9,69 @@ function cmk_register_required_plugins() {
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
-	$plugins = array(
+    
+//* Recommended for local
+
+    $plugins_local = array(
+
+
+        array(
+            'name'      => 'Simply Show Hooks',
+            'slug'      => 'simply-show-hooks',
+            'required'  => false,
+        ),
+
+
+    );
+//* Recommended for live
+    $plugins_live = array(
+
+        array(
+            'name'      => 'Cookie Notice',
+            'slug'      => 'cookie-notice',
+            'required'  => false,
+        ),
+        
+        array(
+            'name'      => 'Easy WP SMTP',
+            'slug'      => 'easy-wp-smtp',
+            'required'  => false,
+        ),
+
+
+        array(
+            'name'      => 'Google Analytics by MonsterInsights',
+            'slug'      => 'google-analytics-for-wordpress',
+            'required'  => true,
+        ),
+
+        array(
+            'name'      => 'Redirection',
+            'slug'      => 'redirection',
+            'required'  => true,
+        ),
+
+        array(
+            'name'      => 'WP Fastest Cache',
+            'slug'      => 'wp-fastest-cache',
+            'required'  => false,
+        ),    
+
+        array(
+            'name'      => 'Post Thumbnail Editor',
+            'slug'      => 'post-thumbnail-editor',
+            'required'  => true,
+        ),    
+
+        array(
+            'name'      => 'Broken Link Checker',
+            'slug'      => 'broken-link-checker',
+            'required'  => true,
+        ),                
+    );
+
+//* Generic
+	$plugins_generic = array(
 
 		array(
 				'name'      => 'Meta box',
@@ -42,31 +104,6 @@ function cmk_register_required_plugins() {
         ),
 
         array(
-            'name'      => 'Broken Link Checker',
-            'slug'      => 'broken-link-checker',
-            'required'  => true,
-        ),
-
-        array(
-            'name'      => 'Cookie Notice',
-            'slug'      => 'cookie-notice',
-            'required'  => false,
-        ),
-        
-        array(
-            'name'      => 'Easy WP SMTP',
-            'slug'      => 'easy-wp-smtp',
-            'required'  => false,
-        ),
-
-
-        array(
-            'name'      => 'Google Analytics by MonsterInsights',
-            'slug'      => 'google-analytics-for-wordpress',
-            'required'  => true,
-        ),
-
-        array(
             'name'      => 'Regenerate Thumbnails',
             'slug'      => 'regenerate-thumbnails',
             'required'  => false,
@@ -75,18 +112,6 @@ function cmk_register_required_plugins() {
         array(
             'name'      => 'Posts 2 Posts',
             'slug'      => 'posts-to-posts',
-            'required'  => false,
-        ),
-
-        array(
-            'name'      => 'Redirection',
-            'slug'      => 'redirection',
-            'required'  => true,
-        ),
-
-        array(
-            'name'      => 'WP Fastest Cache',
-            'slug'      => 'wp-fastest-cache',
             'required'  => false,
         ),
 
@@ -116,12 +141,6 @@ function cmk_register_required_plugins() {
         ),
 
         array(
-            'name'      => 'Post Thumbnail Editor',
-            'slug'      => 'post-thumbnail-editor',
-            'required'  => true,
-        ),
-
-        array(
             'name'      => 'SVG Support',
             'slug'      => 'svg-support',
             'required'  => true,
@@ -135,6 +154,9 @@ function cmk_register_required_plugins() {
 
 	);
 
+
+    if($_SERVER['HTTP_HOST']=='localhost') $plugins = array_merge( $plugins_generic, $plugins_local);
+    else $plugins = array_merge( $plugins_generic, $plugins_live);
 	/*
 	 * Array of configuration settings. Amend each line as needed.
 	 *
