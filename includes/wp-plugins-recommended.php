@@ -110,7 +110,25 @@ function cmk_register_required_plugins() {
             'name'      => 'Bot Block – Stop Spam Referrals in Google Analytics',
             'slug'      => 'bot-block-stop-spam-google-analytics-referrals',
             'required'  => true,
-        ),                    
+        ),     
+
+        array(
+            'name'      => 'EWWW Image Optimizer',
+            'slug'      => 'ewww-image-optimizer',
+            'required'  => false,
+        ),    
+
+        array(
+            'name'      => 'Google Apps Login',
+            'slug'      => 'google-apps-login',
+            'required'  => false,
+        ),        
+
+        array(
+            'name'      => 'Maintenance',
+            'slug'      => 'maintenance',
+            'required'  => false,
+        ),   
     );
 
 //* Generic
@@ -126,24 +144,6 @@ function cmk_register_required_plugins() {
                 'name'      => 'Widgets SO genesis',
                 'slug'      => 'widgets-so-genesis',
                 'required'  => true,
-        ),
-
-        array(
-            'name'      => 'Google Apps Login',
-            'slug'      => 'google-apps-login',
-            'required'  => false,
-        ),
-
-        array(
-            'name'      => 'Maintenance',
-            'slug'      => 'maintenance',
-            'required'  => false,
-        ),
-
-        array(
-            'name'      => 'EWWW Image Optimizer',
-            'slug'      => 'ewww-image-optimizer',
-            'required'  => false,
         ),
 
         array(
