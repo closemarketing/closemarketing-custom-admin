@@ -9,7 +9,44 @@ function cmk_register_required_plugins() {
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
-    
+ 
+//* Recommended for Woocoommerce
+
+    $plugins_woo = array(
+
+        array(
+            'name'      => 'Genesis Connect for WooCommerce',
+            'slug'      => 'genesis-connect-woocommerce',
+            'required'  => false,
+        ),
+
+        array(
+            'name'      => 'WooCommerce Quantity Increment',
+            'slug'      => 'woocommerce-quantity-increment',
+            'required'  => false,
+        ),
+
+        array(
+            'name'      => 'WooCommerce Menu Cart',
+            'slug'      => 'woocommerce-menu-bar-cart',
+            'required'  => false,
+        ),
+
+        array(
+            'name'      => 'WooCommerce Google Analytics Integration',
+            'slug'      => 'woocommerce-google-analytics-integration',
+            'required'  => false,
+        ),
+
+        array(
+            'name'      => 'WooCommerce (ES)',
+            'slug'      => 'woocommerce-es',
+            'required'  => false,
+        ),
+
+
+    );
+
 //* Recommended for local
 
     $plugins_local = array(
@@ -160,8 +197,12 @@ function cmk_register_required_plugins() {
 
 	);
 
+    $plugins = array();
+    
+    if ( class_exists( 'WooCommerce' ) ) $plugins = $plugins_woo;
 
-    if($_SERVER['HTTP_HOST']=='localhost') $plugins = array_merge( $plugins_generic, $plugins_local);
+
+    if($_SERVER['HTTP_HOST']=='localhost') $plugins = array_merge( $plugins, $plugins_generic, $plugins_local);
     else $plugins = array_merge( $plugins_generic, $plugins_live);
 	/*
 	 * Array of configuration settings. Amend each line as needed.
