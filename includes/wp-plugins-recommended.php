@@ -201,9 +201,10 @@ function cmk_register_required_plugins() {
     
     if ( class_exists( 'WooCommerce' ) ) $plugins = $plugins_woo;
 
-
-    if($_SERVER['HTTP_HOST']=='localhost') $plugins = array_merge( $plugins, $plugins_generic, $plugins_local);
-    else $plugins = array_merge( $plugins_generic, $plugins_live);
+    if($_SERVER['HTTP_HOST']=='localhost'||substr($_SERVER['HTTP_HOST'], -3)=='loc'||substr($_SERVER['HTTP_HOST'], -3)=='dev') 
+        $plugins = array_merge( $plugins, $plugins_generic, $plugins_local);
+    else 
+        $plugins = array_merge( $plugins,$plugins_generic, $plugins_live);
 	/*
 	 * Array of configuration settings. Amend each line as needed.
 	 *
