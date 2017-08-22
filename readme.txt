@@ -4,8 +4,8 @@ Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 0.4.1
-Version: 0.4.1
+Stable tag: 0.4.2
+Version: 0.4.2
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -41,6 +41,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
+= 0.4.2 =
+*   Updated list of plugins recommended
+*   Fixed bug url downloader
+
 = 0.4.1 =
 *   Better detect localhost in plugins recommended
 
