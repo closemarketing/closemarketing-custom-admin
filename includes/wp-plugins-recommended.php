@@ -115,8 +115,8 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Maintenance',
-			'slug'     => 'maintenance',
+			'name'     => 'Genesis Coming Soon',
+			'slug'     => 'coming-soon-for-genesis',
 			'required' => false,
 		),
 
