@@ -3,16 +3,16 @@ Contributors: closemarketing, davidperez
 Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 0.4.2
-Version: 0.4.2
+Tested up to: 4.8.2
+Stable tag: 0.5
+Version: 0.5
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
 == Description ==
 Makes some changes in WordPress admin for better customization in Closemarketing Webs:
 
-- Custom logo.
+- Custom logo and login screen.
 - Unpublished posts in other colour.
 - Custom info.
 - Resizes images before upload.
@@ -41,6 +41,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
+= 0.5 =
+*   Updated list of plugins recommended
+*   New login screen
+
 = 0.4.2 =
 *   Updated list of plugins recommended
 *   Fixed bug url downloader
