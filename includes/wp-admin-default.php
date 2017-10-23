@@ -68,8 +68,16 @@ function cmk_remove_profile_fields($contactmethods) {
 add_action('login_head', 'cmk_custom_login_logo');
 function cmk_custom_login_logo() {
 	echo '<style type="text/css">
-        h1 a { background-image:url(' . trailingslashit(plugin_dir_url(__FILE__)) . '/logo-login.png) !important; }
-        p.galogin-powered {display: none;}
+	h1 a { background-image:url(' . trailingslashit(plugin_dir_url(__FILE__)) . '/logo-login.png) !important; }
+	p.galogin-powered {display: none;}
+	body.login {background: #85bb41 url(' . trailingslashit(plugin_dir_url(__FILE__)) . 'login-background.png) bottom left no-repeat; }
+	.login label {color:#395912;}
+	.login form {background: #b7da86;}
+	.wp-core-ui .button-primary {background-color: #395912; border-color: none;}
+	.wp-core-ui .button-primary.focus, .wp-core-ui .button-primary.hover, .wp-core-ui .button-primary:focus, .wp-core-ui .button-primary:hover {  background-color: #38710c;border-color: none; }
+	form#loginform p.galogin { background: none repeat scroll 0 0 #395912; }
+	.login #backtoblog a, .login #nav a { color: white; }
+	.login #backtoblog a:hover, .login #nav a:hover { color: #395912; }
     </style>';
 }
 
