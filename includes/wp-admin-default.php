@@ -70,7 +70,7 @@ function cmk_custom_login_logo() {
 	echo '<style type="text/css">
 	h1 a { background-image:url(' . trailingslashit(plugin_dir_url(__FILE__)) . '/logo-login.png) !important; }
 	p.galogin-powered {display: none;}
-	body.login {background: #85bb41 url(' . trailingslashit(plugin_dir_url(__FILE__)) . 'login-background.png) bottom left no-repeat; }
+	body.login {background: #85bb41 url(' . trailingslashit(plugin_dir_url(__FILE__)) . 'login-background.gif) bottom left no-repeat; }
 	.login label {color:#395912;}
 	.login form {background: #b7da86;}
 	.wp-core-ui .button-primary {background-color: #395912; border-color: none;}
