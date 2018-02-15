@@ -3,7 +3,7 @@ Contributors: closemarketing, davidperez
 Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
-Tested up to: 4.8.2
+Tested up to: 4.9.4
 Stable tag: 0.5.1
 Version: 0.5.1
 
