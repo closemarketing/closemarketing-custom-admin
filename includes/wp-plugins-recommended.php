@@ -10,8 +10,7 @@ function cmk_register_required_plugins() {
 		     * If the source is NOT from the .org repo, then source is also required.
 	*/
 
-//* Recommended for Woocoommerce
-
+	//* Recommended for Woocoommerce
 	$plugins_woo = array(
 
 		array(
@@ -46,8 +45,7 @@ function cmk_register_required_plugins() {
 
 	);
 
-//* Recommended for local
-
+	//* Recommended for local
 	$plugins_local = array(
 
 		array(
@@ -57,7 +55,8 @@ function cmk_register_required_plugins() {
 		),
 
 	);
-//* Recommended for live
+
+	//* Recommended for live
 	$plugins_live = array(
 
 		array(
@@ -138,7 +137,7 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Widgets SO genesis',
+			'name'     => 'Widgets for Genesis',
 			'slug'     => 'widgets-so-genesis',
 			'required' => true,
 		),
@@ -189,6 +188,16 @@ function cmk_register_required_plugins() {
 			'name'   => 'WP Sync DB',
 			'slug'   => 'wp-sync-db',
 			'source' => 'https://github.com/wp-sync-db/wp-sync-db/archive/master.zip',
+		),
+		array(
+			'name'   => 'WP Sync DB Files',
+			'slug'   => 'wp-sync-db-media-files',
+			'source' => 'https://github.com/wp-sync-db/wp-sync-db-media-files/archive/master.zip',
+		),
+		array(
+			'name'   => 'GravityForms for Mailerlite',
+			'slug'   => 'connector-gravityforms-mailerlite',
+			'required' => true,
 		),
 
 	);
