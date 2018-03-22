@@ -187,7 +187,7 @@ function cmk_register_required_plugins() {
 		array(
 			'name'   => 'WP Sync DB',
 			'slug'   => 'wp-sync-db',
-			'source' => 'https://github.com/wp-sync-db/wp-sync-db/archive/master.zip',
+			'source' => 'https://github.com/corysimmons/wp-sync-db/archive/master.zip',
 		),
 		array(
 			'name'   => 'WP Sync DB Files',
