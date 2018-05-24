@@ -5,10 +5,6 @@ require_once dirname(__FILE__) . '/class-tgm-plugin-activation.php';
 add_action('tgmpa_register', 'cmk_register_required_plugins');
 
 function cmk_register_required_plugins() {
-	/*
-		     * Array of plugin arrays. Required keys are name and slug.
-		     * If the source is NOT from the .org repo, then source is also required.
-	*/
 
 	//* Recommended for Woocoommerce
 	$plugins_woo = array(
@@ -108,14 +104,20 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
+			'name'     => 'Stop Spammers',
+			'slug'     => 'stop-spammer-registrations-plugin',
+			'required' => true,
+		),
+
+		array(
 			'name'     => 'Google Apps Login',
 			'slug'     => 'google-apps-login',
 			'required' => false,
 		),
 
 		array(
-			'name'     => 'Genesis Coming Soon',
-			'slug'     => 'coming-soon-for-genesis',
+			'name'     => 'Maintenance',
+			'slug'     => 'maintenance',
 			'required' => false,
 		),
 
@@ -124,10 +126,15 @@ function cmk_register_required_plugins() {
 			'slug'     => 'imagify',
 			'required' => false,
 		),
+		array(
+			'name'   => 'GravityForms for Mailerlite',
+			'slug'   => 'connector-gravityforms-mailerlite',
+			'required' => true,
+		),
 
 	);
 
-//* Generic
+	//* Generic
 	$plugins_generic = array(
 
 		array(
@@ -193,11 +200,6 @@ function cmk_register_required_plugins() {
 			'name'   => 'WP Sync DB Files',
 			'slug'   => 'wp-sync-db-media-files',
 			'source' => 'https://github.com/wp-sync-db/wp-sync-db-media-files/archive/master.zip',
-		),
-		array(
-			'name'   => 'GravityForms for Mailerlite',
-			'slug'   => 'connector-gravityforms-mailerlite',
-			'required' => true,
 		),
 
 	);
