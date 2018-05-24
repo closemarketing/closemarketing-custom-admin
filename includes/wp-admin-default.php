@@ -158,6 +158,8 @@ function cmk_dashboard_widgets() {
 	// add a custom dashboard widget
 	wp_add_dashboard_widget('dashboard_custom_feed', 'Noticias de Closemarketing', 'cmk_dashboard_custom_feed_output'); //add new RSS feed output
 }
+
+add_filter('the_excerpt_rss', 'cmk_rss_post_thumbnail');
 function cmk_dashboard_custom_feed_output() {
 	echo '<div class="rss-widget">';
 	wp_widget_rss_output(array(
@@ -171,17 +173,16 @@ function cmk_dashboard_custom_feed_output() {
 	echo "</div>";
 }
 
+add_filter('the_content_feed', 'cmk_rss_post_thumbnail');
 function cmk_rss_post_thumbnail($content) {
 	global $post;
 	if (has_post_thumbnail($post->ID)) {
 		$content = '<p>' . get_the_post_thumbnail($post->ID) .
-		'</p>' . get_the_content();
+		'</p>' . get_the_excerpt();
 	}
 
 	return $content;
 }
-add_filter('the_excerpt_rss', 'cwc_rss_post_thumbnail');
-add_filter('the_content_feed', 'cmk_rss_post_thumbnail');
 
 //distinto color segun estado de entrada
 add_action('admin_footer', 'cmk_posts_status_color');
