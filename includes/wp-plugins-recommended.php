@@ -126,6 +126,11 @@ function cmk_register_required_plugins() {
 			'slug'     => 'imagify',
 			'required' => false,
 		),
+		array(
+			'name'   => 'GravityForms for Mailerlite',
+			'slug'   => 'connector-gravityforms-mailerlite',
+			'required' => true,
+		),
 
 	);
 
@@ -195,11 +200,6 @@ function cmk_register_required_plugins() {
 			'name'   => 'WP Sync DB Files',
 			'slug'   => 'wp-sync-db-media-files',
 			'source' => 'https://github.com/wp-sync-db/wp-sync-db-media-files/archive/master.zip',
-		),
-		array(
-			'name'   => 'GravityForms for Mailerlite',
-			'slug'   => 'connector-gravityforms-mailerlite',
-			'required' => true,
 		),
 
 	);
