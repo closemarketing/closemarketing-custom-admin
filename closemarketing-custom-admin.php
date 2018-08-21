@@ -36,3 +36,9 @@ require_once dirname( __FILE__ ) . '/includes/wp-admin-default.php';
 require_once dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php';
 
 require_once dirname( __FILE__ ) . '/includes/wp-plugins-recommended.php';
+
+if ( class_exists( 'WooCommerce' ) ) {
+	require_once dirname( __FILE__ ) . '/includes/woocommerce.php';
+}
+
+require_once dirname( __FILE__ ) . '/includes/genesis.php';
