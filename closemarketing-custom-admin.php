@@ -45,6 +45,6 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 $theme = wp_get_theme( 'genesis' );
 
 // Restrict activation to only when the Genesis Framework is activated.
-if ( basename( get_template_directory() ) != 'genesis' ) {
+if ( basename( get_template_directory() ) === 'genesis' ) {
 	require_once dirname( __FILE__ ) . '/includes/genesis.php';
 }
