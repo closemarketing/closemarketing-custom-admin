@@ -61,17 +61,6 @@ add_theme_support( 'genesis-accessibility', array( '404-page', 'drop-down-menu',
 // * Add viewport meta tag for mobile browsers
 add_theme_support( 'genesis-responsive-viewport' );
 
-// * Add support for custom header
-add_theme_support(
-	'custom-header', array(
-		'width'           => 600,
-		'height'          => 160,
-		'header-selector' => '.site-title a',
-		'header-text'     => false,
-		'flex-height'     => true,
-	)
-);
-
 // * Add support for after entry widget
 add_theme_support( 'genesis-after-entry-widget-area' );
 
@@ -132,12 +121,13 @@ if ( function_exists( 'cmk_show_excerpts' ) ) {
 }
 
 if ( function_exists( 'sdt_remove_ver_css_js' ) ) {
-	// Remove WP Version From Styles
+	// Remove WP Version From Styles.
 	add_filter( 'style_loader_src', 'sdt_remove_ver_css_js', 9999 );
-	// Remove WP Version From Scripts
+
+	// Remove WP Version From Scripts.
 	add_filter( 'script_loader_src', 'sdt_remove_ver_css_js', 9999 );
 
-	// Function to remove version numbers
+	// Function to remove version numbers.
 	function sdt_remove_ver_css_js( $src ) {
 		if ( strpos( $src, 'ver=' ) ) {
 			$src = remove_query_arg( 'ver', $src );
@@ -213,4 +203,19 @@ if ( function_exists( 'cmk_term_excerpt' ) ) {
 		echo term_description();
 		echo '</div>';
 	}
+}
+
+if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+	/**
+	 * Loads functions in custom post type for wooarchive
+	 *
+	 * @return void
+	 */
+	function cmk_load_wooarchive_page() {
+		if ( is_product_category() || is_product_tag() ) {
+			// Custom actions.
+			add_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
+		}
+	}
+	add_action( 'get_header', 'cmk_load_wooarchive_page' );
 }
