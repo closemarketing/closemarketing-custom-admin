@@ -5,7 +5,7 @@
  * Description: Enhacements WordPress admin for Closemarketing.
  * Author: davidperez
  * Author URI: https://www.closemarketing.es/
- * Version: 0.6
+ * Version: 1.0
  * Text Domain: closemarketing-custom-admin
  * Domain Path: /languages
  * License: GNU General Public License version 3.0
@@ -37,8 +37,14 @@ require_once dirname( __FILE__ ) . '/includes/class-tgm-plugin-activation.php';
 
 require_once dirname( __FILE__ ) . '/includes/wp-plugins-recommended.php';
 
-if ( class_exists( 'WooCommerce' ) ) {
+if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 	require_once dirname( __FILE__ ) . '/includes/woocommerce.php';
 }
 
-require_once dirname( __FILE__ ) . '/includes/genesis.php';
+// Find Genesis Theme Data.
+$theme = wp_get_theme( 'genesis' );
+
+// Restrict activation to only when the Genesis Framework is activated.
+if ( basename( get_template_directory() ) != 'genesis' ) {
+	require_once dirname( __FILE__ ) . '/includes/genesis.php';
+}

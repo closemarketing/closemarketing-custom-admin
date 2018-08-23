@@ -3,9 +3,9 @@ Contributors: closemarketing, davidperez
 Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
-Tested up to: 4.9.6
-Stable tag: 0.6
-Version: 0.6
+Tested up to: 4.9.8
+Stable tag: 1.0
+Version: 1.0
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -20,6 +20,21 @@ Makes some changes in WordPress admin for better customization in Closemarketing
 - Count Entries from Post Types in Dashboard.
 - Custom admin colour bar (diferent in local).
 - Sanitize filenames for better support in Safari.
+
+In [Genesis Framework](https://www.closemarketing.es/likes/genesis/)
+- Remove WordPress Generator, Feed Links and Feed Comments, Emoji and Dashicons.
+- Enqueue Min Gravity Forms style.
+- Base CSS.
+- Loads Favicon.
+- Show excerpts instead of content in archive pages.
+- Remove version in CSS and Scripts for development.
+- Custom redirect depending of author.
+- Adds term excerpts.
+- Adds Taxonomy archive with Genesis WooCommerce Connect.
+
+In WooCommerce enhacements:
+- Remove scripts not necessary in non WooCommerce pages.
+- Add theme support compatibility.
 
 
 Others Plugins:
@@ -41,6 +56,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
+= 1.0 =
+*   Added Genesis and WooCommerce functions enhacements.
+*   Solved conflict taxonomy description in Genesis WooCommerce Connect.
+
 = 0.6 =
 *   Bug in feed.
 *   Updated plugins recommended.
