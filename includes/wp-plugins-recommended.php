@@ -150,6 +150,12 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
+			'name'     => 'Gravity Forms Spanish',
+			'slug'     => 'gravityforms-es',
+			'required' => false,
+		),
+
+		array(
 			'name'     => 'Regenerate Thumbnails',
 			'slug'     => 'regenerate-thumbnails',
 			'required' => false,
