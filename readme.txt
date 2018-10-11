@@ -4,8 +4,8 @@ Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
 Tested up to: 4.9.8
-Stable tag: 1.0
-Version: 1.0
+Stable tag: 1.1
+Version: 1.1
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -56,6 +56,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
+= 1.1 =
+*   Fixes duplicated content in WooCommerce taxonomies.
+
 = 1.0 =
 *   Added Genesis and WooCommerce functions enhacements.
 *   Solved conflict taxonomy description in Genesis WooCommerce Connect.
