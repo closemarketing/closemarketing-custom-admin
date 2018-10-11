@@ -204,18 +204,3 @@ if ( function_exists( 'cmk_term_excerpt' ) ) {
 		echo '</div>';
 	}
 }
-
-if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-	/**
-	 * Loads functions in custom post type for wooarchive
-	 *
-	 * @return void
-	 */
-	function cmk_load_wooarchive_page() {
-		if ( is_product_category() || is_product_tag() ) {
-			// Custom actions.
-			add_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
-		}
-	}
-	add_action( 'get_header', 'cmk_load_wooarchive_page' );
-}
