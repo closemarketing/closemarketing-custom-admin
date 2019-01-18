@@ -26,8 +26,6 @@ define( 'CMK_MAX_UPLOAD_SIZE', '10971520b' );
 // * Includes Libraries for Closemarketing
 require_once dirname( __FILE__ ) . '/includes/one-category.php';
 
-require_once dirname( __FILE__ ) . '/includes/clean-url-seo.php';
-
 require_once dirname( __FILE__ ) . '/includes/resize-before-upload.php';
 
 require_once dirname( __FILE__ ) . '/includes/wp-admin-default.php';
