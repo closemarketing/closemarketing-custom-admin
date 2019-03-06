@@ -194,7 +194,7 @@ class CCA_WPAdmin {
 			#adminmenu .wp-submenu a:focus, #adminmenu .wp-submenu a:hover, #adminmenu a:hover, #adminmenu li.menu-top>a:focus,#adminmenu li.menu-top:hover, #adminmenu li.opensub>a.menu-top, #adminmenu li>a.menu-top:focus, #adminmenu li a:focus div.wp-menu-image:before, #adminmenu li.opensub div.wp-menu-image:before, #adminmenu li:hover div.wp-menu-image:before {
 				color: ' . $color . ' !important;
 			}
-			</style>'; 
+			</style>';
 	}
 
 	/**
@@ -229,19 +229,19 @@ class CCA_WPAdmin {
 	 */
 	public function dashboard_widgets() {
 		global $wp_meta_boxes;
-		// remove unnecessary widgets
-		// var_dump( $wp_meta_boxes['dashboard'] ); // use to get all the widget IDs
+		// remove unnecessary widgets.
+		// var_dump( $wp_meta_boxes['dashboard'] ); // use to get all the widget IDs.
 		unset(
 			$wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins'],
 			$wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'],
 			$wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']
 		);
-		// add a custom dashboard widget
-		wp_add_dashboard_widget( 
-			'dashboard_custom_feed', 
-			'Noticias de Closemarketing', 
-			array( $this, 'dashboard_custom_feed_output' ) 
-		); // add new RSS feed output
+		// add a custom dashboard widget.
+		wp_add_dashboard_widget(
+			'dashboard_custom_feed',
+			'Noticias de Closemarketing',
+			array( $this, 'dashboard_custom_feed_output' )
+		); // add new RSS feed output.
 	}
 
 	/**
