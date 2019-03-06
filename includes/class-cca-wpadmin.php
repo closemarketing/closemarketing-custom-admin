@@ -9,7 +9,6 @@
  * @package  Admin
  */
 
-
 /**
  * Class for admin fields
  */
@@ -23,7 +22,7 @@ class CCA_WPAdmin {
 		add_action( 'admin_head', array( $this, 'hide_menu' ) );
 
 		// Disable default dashboard widgets.
-		add_action( 'wp_dashboard_setup', array( $this, 'add_custom_dashboard_widget' ) ); 
+		add_action( 'wp_dashboard_setup', array( $this, 'add_custom_dashboard_widget' ) );
 		add_action( 'admin_init', array( $this, 'disable_default_dashboard_widgets' ) );
 		add_filter( 'admin_footer_text', array( $this, 'closemarketing_footer_admin' ) );
 
@@ -94,7 +93,11 @@ class CCA_WPAdmin {
 	 * @return void
 	 */
 	public function add_custom_dashboard_widget() {
-		wp_add_dashboard_widget( 'cmk_custom_dashboard_widget', 'Contactar con Closemarketing', 'cmk_custom_dashboard_widget' );
+		wp_add_dashboard_widget(
+			'custom_dashboard_widget',
+			'Contactar con Closemarketing',
+			array( $this, 'custom_dashboard_widget' )
+		);
 	}
 
 	/**
@@ -117,21 +120,22 @@ class CCA_WPAdmin {
 	 * @return void
 	 */
 	public function closemarketing_footer_admin() {
-		echo 'Closemarketing - Dise&ntilde;o y Marketing ' . date('Y') . '. Realizado sobre Gestor Contenidos WordPress.';
+		echo 'Closemarketing - Dise&ntilde;o y Marketing ' . esc_html( date( 'Y' ) );
+		echo '. Realizado sobre Gestor Contenidos WordPress.';
 	}
 
 	/**
 	 * Customize Author fields
 	 *
 	 * @param array $contactmethods Array of methods contact.
-	 * @return void
+	 * @return array $contactmethods
 	 */
-	public function cmk_remove_profile_fields( $contactmethods ) {
+	public function remove_profile_fields( $contactmethods ) {
 
-		$contactmethods['twitter'] = 'Twitter';
-		$contactmethods['facebook']           = 'Facebook';
-		$contactmethods['googleprofile']      = 'Google Profile URL';
-		$contactmethods['googleprofileemail'] = 'Google Profile Email';
+		$contactmethods['twitter']   = 'Twitter';
+		$contactmethods['facebook']  = 'Facebook';
+		$contactmethods['linkedin']  = 'Linkedin';
+		$contactmethods['instagram'] = 'Instagram';
 
 		unset( $contactmethods['aim'] );
 		unset( $contactmethods['jabber'] );
@@ -163,20 +167,21 @@ class CCA_WPAdmin {
 	/**
 	 * Change admin bar color
 	 *
-	 * @return html
+	 * @return void
 	 */
 	public function change_bar_color() {
 
-		if ( $_SERVER['HTTP_HOST'] == 'localhost' ) {
-			$color = 'red'; // local
+		if ( 'localhost' == $_SERVER['HTTP_HOST'] ) {
+			// local.
+			$color = 'red';
 		} else {
 			$tldcal = explode( '.', $_SERVER['HTTP_HOST'] );
 			$tld    = end( $tldcal );
 			if ( $tld == 'loc' || $tld == 'dev' ) {
-				// local
+				// local.
 				$color = 'red';
 			} else {
-				// live
+				// live.
 				$color = '#85b83c';
 			}
 		}
@@ -232,7 +237,11 @@ class CCA_WPAdmin {
 			$wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']
 		);
 		// add a custom dashboard widget
-		wp_add_dashboard_widget( 'dashboard_custom_feed', 'Noticias de Closemarketing', 'cmk_dashboard_custom_feed_output' ); // add new RSS feed output
+		wp_add_dashboard_widget( 
+			'dashboard_custom_feed', 
+			'Noticias de Closemarketing', 
+			array( $this, 'dashboard_custom_feed_output' ) 
+		); // add new RSS feed output
 	}
 
 	/**
@@ -410,16 +419,17 @@ class CCA_WPAdmin {
 	/**
 	 * Remove accents in filenames
 	 *
-	 * @param string $filename
-	 * @return void
+	 * @param string $filename Filename of the file.
+	 * @return string $filename
 	 */
-	function sanitize_filename_on_upload( $filename ) {
+	public function sanitize_filename_on_upload( $filename ) {
 		$ext = explode( '.', $filename );
 		$ext = end( $ext );
 		// Reemplazar todos los caracteres extranos.
 		$sanitized = preg_replace( '/[^a-zA-Z0-9-_.]/', '', substr( $filename, 0, -( strlen( $ext ) + 1 ) ) );
 		// Replace dots inside filename
 		$sanitized = str_replace( '.', '-', $sanitized );
+
 		return strtolower( $sanitized . '.' . $ext );
 	}
 
@@ -500,7 +510,7 @@ class CCA_WPAdmin {
 	private function seo_slugs_stop_words_en () {
 	   return array ("a", "able", "about", "above", "abroad", "according", "accordingly", "across", "actually", "adj", "after", "afterwards", "again", "against", "ago", "ahead", "ain't", "all", "allow", "allows", "almost", "alone", "along", "alongside", "already", "also", "although", "always", "am", "amid", "amidst", "among", "amongst", "an", "and", "another", "any", "anybody", "anyhow", "anyone", "anything", "anyway", "anyways", "anywhere", "apart", "appear", "appreciate", "appropriate", "are", "aren't", "around", "as", "a's", "aside", "ask", "asking", "associated", "at", "available", "away", "awfully", "b", "back", "backward", "backwards", "be", "became", "because", "become", "becomes", "becoming", "been", "before", "beforehand", "begin", "behind", "being", "believe", "below", "beside", "besides", "best", "better", "between", "beyond", "both", "brief", "but", "by", "c", "came", "can", "cannot", "cant", "can't", "caption", "cause", "causes", "certain", "certainly", "changes", "clearly", "c'mon", "co", "co.", "com", "come", "comes", "concerning", "consequently", "consider", "considering", "contain", "containing", "contains", "corresponding", "could", "couldn't", "course", "c's", "currently", "d", "dare", "daren't", "definitely", "described", "despite", "did", "didn't", "different", "directly", "do", "does", "doesn't", "doing", "done", "don't", "down", "downwards", "during", "e", "each", "edu", "eg", "eight", "eighty", "either", "else", "elsewhere", "end", "ending", "enough", "entirely", "especially", "et", "etc", "even", "ever", "evermore", "every", "everybody", "everyone", "everything", "everywhere", "ex", "exactly", "example", "except", "f", "fairly", "far", "farther", "few", "fewer", "fifth", "first", "five", "followed", "following", "follows", "for", "forever", "former", "formerly", "forth", "forward", "found", "four", "from", "further", "furthermore", "g", "get", "gets", "getting", "given", "gives", "go", "goes", "going", "gone", "got", "gotten", "greetings", "h", "had", "hadn't", "half", "happens", "hardly", "has", "hasn't", "have", "haven't", "having", "he", "he'd", "he'll", "hello", "help", "hence", "her", "here", "hereafter", "hereby", "herein", "here's", "hereupon", "hers", "herself", "he's", "hi", "him", "himself", "his", "hither", "hopefully", "how", "howbeit", "however", "hundred", "i", "i'd", "ie", "if", "ignored", "i'll", "i'm", "immediate", "in", "inasmuch", "inc", "inc.", "indeed", "indicate", "indicated", "indicates", "inner", "inside", "insofar", "instead", "into", "inward", "is", "isn't", "it", "it'd", "it'll", "its", "it's", "itself", "i've", "j", "just", "k", "keep", "keeps", "kept", "know", "known", "knows", "l", "last", "lately", "later", "latter", "latterly", "least", "less", "lest", "let", "let's", "like", "liked", "likely", "likewise", "little", "look", "looking", "looks", "low", "lower", "ltd", "m", "made", "mainly", "make", "makes", "many", "may", "maybe", "mayn't", "me", "mean", "meantime", "meanwhile", "merely", "might", "mightn't", "mine", "minus", "miss", "more", "moreover", "most", "mostly", "mr", "mrs", "much", "must", "mustn't", "my", "myself", "n", "name", "namely", "nd", "near", "nearly", "necessary", "need", "needn't", "needs", "neither", "never", "neverf", "neverless", "nevertheless", "new", "next", "nine", "ninety", "no", "nobody", "non", "none", "nonetheless", "noone", "no-one", "nor", "normally", "not", "nothing", "notwithstanding", "novel", "now", "nowhere", "o", "obviously", "of", "off", "often", "oh", "ok", "okay", "old", "on", "once", "one", "ones", "one's", "only", "onto", "opposite", "or", "other", "others", "otherwise", "ought", "oughtn't", "our", "ours", "ourselves", "out", "outside", "over", "overall", "own", "p", "particular", "particularly", "past", "per", "perhaps", "placed", "please", "plus", "possible", "presumably", "probably", "provided", "provides", "q", "que", "quite", "qv", "r", "rather", "rd", "re", "really", "reasonably", "recent", "recently", "regarding", "regardless", "regards", "relatively", "respectively", "right", "round", "s", "said", "same", "saw", "say", "saying", "says", "second", "secondly", "see", "seeing", "seem", "seemed", "seeming", "seems", "seen", "self", "selves", "sensible", "sent", "serious", "seriously", "seven", "several", "shall", "shan't", "she", "she'd", "she'll", "she's", "should", "shouldn't", "since", "six", "so", "some", "somebody", "someday", "somehow", "someone", "something", "sometime", "sometimes", "somewhat", "somewhere", "soon", "sorry", "specified", "specify", "specifying", "still", "sub", "such", "sup", "sure", "t", "take", "taken", "taking", "tell", "tends", "th", "than", "thank", "thanks", "thanx", "that", "that'll", "thats", "that's", "that've", "the", "their", "theirs", "them", "themselves", "then", "thence", "there", "thereafter", "thereby", "there'd", "therefore", "therein", "there'll", "there're", "theres", "there's", "thereupon", "there've", "these", "they", "they'd", "they'll", "they're", "they've", "thing", "things", "think", "third", "thirty", "this", "thorough", "thoroughly", "those", "though", "three", "through", "throughout", "thru", "thus", "till", "to", "together", "too", "took", "toward", "towards", "tried", "tries", "truly", "try", "trying", "t's", "twice", "two", "u", "un", "under", "underneath", "undoing", "unfortunately", "unless", "unlike", "unlikely", "until", "unto", "up", "upon", "upwards", "us", "use", "used", "useful", "uses", "using", "usually", "v", "value", "various", "versus", "very", "via", "viz", "vs", "w", "want", "wants", "was", "wasn't", "way", "we", "we'd", "welcome", "well", "we'll", "went", "were", "we're", "weren't", "we've", "what", "whatever", "what'll", "what's", "what've", "when", "whence", "whenever", "where", "whereafter", "whereas", "whereby", "wherein", "where's", "whereupon", "wherever", "whether", "which", "whichever", "while", "whilst", "whither", "who", "who'd", "whoever", "whole", "who'll", "whom", "whomever", "who's", "whose", "why", "will", "willing", "wish", "with", "within", "without", "wonder", "won't", "would", "wouldn't", "x", "y", "yes", "yet", "you", "you'd", "you'll", "your", "you're", "yours", "yourself", "yourselves", "you've", "z", "zero");
 	}
-	private function cmk_seo_slugs_stop_words_es () {
+	private function cmk_seo_slugs_stop_words_es() {
 	   return array ("a", "algún", "alguna", "algunas", "alguno", "algunos", "ambos", "ampleamos", "ante", "antes", "aquel", "aquellas", "aquellos", "aqui", "arriba", "atras", "b", "bajo", "bastante", "bien", "c", "cada", "cierta", "ciertas", "ciertos", "como", "con", "conseguimos", "conseguir", "consigo", "consigue", "consiguen", "consigues", "cual", "cuando", "de", "dentro", "donde", "dos", "e", "el", "ellas", "ellos", "empleais", "emplean", "emplear", "empleas", "empleo", "en", "encima", "entonces", "entre", "era", "eramos", "eran", "eras", "eres", "es", "esta", "estaba", "estado", "estais", "estamos", "estan", "estoy", "f", "fin", "fue", "fueron", "fui", "fuimos", "g", "gueno", "h", "ha", "hace", "haceis", "hacemos", "hacen", "hacer", "haces", "hago", "i", "incluso", "intenta", "intentais", "intentamos", "intentan", "intentar", "intentas", "intento", "ir", "j", "k", "l", "la", "largo", "las", "lo", "los", "m", "mientras", "mio", "modo", "muchos", "muy", "n", "nos", "nosotros", "o", "otro", "p", "para", "pero", "podeis", "podemos", "poder", "podria", "podriais", "podriamos", "podrian", "podrias", "por qué", "por", "porque", "primero desde", "puede", "pueden", "puedo", "que", "quien", "r", "s", "sabe", "sabeis", "sabemos", "saben", "saber", "sabes", "se", "ser", "si", "siendo", "sin", "sobre", "sois", "solamente", "solo", "somos", "soy", "su", "sus", "t", "también", "teneis", "tenemos", "tener", "tengo", "tiempo", "tiene", "tienen", "todo", "trabaja", "trabajais", "trabajamos", "trabajan", "trabajar", "trabajas", "trabajo", "tras", "tuyo", "u", "ultimo", "un", "una", "unas", "uno", "unos", "usa", "usais", "usamos", "usan", "usar", "usas", "uso", "v", "va", "vais", "valor", "vamos", "van", "vaya", "verdad", "verdadera cierto", "verdadero", "vosotras", "vosotros", "voy", "w", "x", "y", "yo", "z");
 	} // Stop word list from: http://www.ranks.nl/stopwords/spanish
 
