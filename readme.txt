@@ -56,6 +56,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
+= 1.2 =
+*   Rewritten class for admin.
+
 = 1.1 =
 *   Fixes duplicated content in WooCommerce taxonomies.
 
