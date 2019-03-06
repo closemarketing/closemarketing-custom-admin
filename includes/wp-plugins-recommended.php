@@ -28,12 +28,6 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'WooCommerce Google Analytics Integration',
-			'slug'     => 'woocommerce-google-analytics-integration',
-			'required' => false,
-		),
-
-		array(
 			'name'     => 'WooCommerce (ES)',
 			'slug'     => 'woocommerce-es',
 			'required' => false,
@@ -68,8 +62,8 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Google Analytics by MonsterInsights',
-			'slug'     => 'google-analytics-for-wordpress',
+			'name'     => 'DuracellTomi Google Tag Manager para WordPress',
+			'slug'     => 'duracelltomi-google-tag-manager',
 			'required' => true,
 		),
 
@@ -88,6 +82,12 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Post Thumbnail Editor',
 			'slug'     => 'post-thumbnail-editor',
+			'required' => true,
+		),
+
+		array(
+			'name'     => 'Auto Image Attributes From Filename With Bulk Updater',
+			'slug'     => 'auto-image-attributes-from-filename-with-bulk-updater',
 			'required' => true,
 		),
 
@@ -122,8 +122,8 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Imagify Image Optimizer',
-			'slug'     => 'imagify',
+			'name'     => 'Smush Image Compression and Optimization',
+			'slug'     => 'wp-smushit',
 			'required' => false,
 		),
 		array(
@@ -162,16 +162,16 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Posts 2 Posts',
-			'slug'     => 'posts-to-posts',
-			'required' => false,
-		),
-
-		array(
 			'name'        => 'WordPress SEO by Yoast',
 			'slug'        => 'wordpress-seo',
 			'is_callable' => 'wpseo_init',
 			'required'    => true,
+		),
+
+		array(
+			'name'        => 'WordPress SEO Plugin – Rank Math',
+			'slug'        => 'seo-by-rank-math',
+			'required'    => false,
 		),
 
 		array(
@@ -181,15 +181,9 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Page Builder',
-			'slug'     => 'siteorigin-panels',
-			'required' => true,
-		),
-
-		array(
-			'name'     => 'Page Builder Widgets',
-			'slug'     => 'so-widgets-bundle',
-			'required' => true,
+			'name'     => 'Atomic Blocks – Gutenberg Blocks Collection',
+			'slug'     => 'atomic-blocks',
+			'required' => false,
 		),
 
 		array(
