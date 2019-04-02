@@ -44,6 +44,12 @@ function cmk_register_required_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'Query Monitor',
+			'slug'     => 'query-monitor',
+			'required' => false,
+		),
+
 	);
 
 	//* Recommended for live
@@ -127,14 +133,14 @@ function cmk_register_required_plugins() {
 			'required' => false,
 		),
 		array(
-			'name'   => 'GravityForms for Mailerlite',
-			'slug'   => 'connector-gravityforms-mailerlite',
+			'name'     => 'GravityForms for Mailerlite',
+			'slug'     => 'connector-gravityforms-mailerlite',
 			'required' => true,
 		),
 
 	);
 
-	//* Generic
+	// Generic.
 	$plugins_generic = array(
 
 		array(
@@ -169,9 +175,9 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'        => 'WordPress SEO Plugin – Rank Math',
-			'slug'        => 'seo-by-rank-math',
-			'required'    => false,
+			'name'     => 'WordPress SEO Plugin – Rank Math',
+			'slug'     => 'seo-by-rank-math',
+			'required' => false,
 		),
 
 		array(
@@ -206,25 +212,25 @@ function cmk_register_required_plugins() {
 
 	$plugins = array();
 
-	if (class_exists('WooCommerce')) {
+	if ( class_exists( 'WooCommerce' ) ) {
 		$plugins = $plugins_woo;
 	}
 
-	$tld = substr($_SERVER['HTTP_HOST'], -3);
+	$tld = substr( $_SERVER['HTTP_HOST'], -3 );
 
-	if ($_SERVER['HTTP_HOST'] == 'localhost' || $tld == 'loc' || $tld == 'dev') {
-		$plugins = array_merge($plugins, $plugins_generic, $plugins_local);
+	if ( $_SERVER['HTTP_HOST'] == 'localhost' || $tld == 'loc' || $tld == 'dev' ) {
+		$plugins = array_merge( $plugins, $plugins_generic, $plugins_local );
 	} else {
-		$plugins = array_merge($plugins, $plugins_generic, $plugins_live);
+		$plugins = array_merge( $plugins, $plugins_generic, $plugins_live );
 	}
 	/*
-		     * Array of configuration settings. Amend each line as needed.
-		     *
-		     * TGMPA will start providing localized text strings soon. If you already have translations of our standard
-		     * strings available, please help us make TGMPA even better by giving us access to these translations or by
-		     * sending in a pull-request with .po file(s) with the translations.
-		     *
-		     * Only uncomment the strings in the config array if you want to customize the strings.
+	* Array of configuration settings. Amend each line as needed.
+	*
+	* TGMPA will start providing localized text strings soon. If you already have translations of our standard
+	* strings available, please help us make TGMPA even better by giving us access to these translations or by
+	* sending in a pull-request with .po file(s) with the translations.
+	*
+	* Only uncomment the strings in the config array if you want to customize the strings.
 	*/
 	$config = array(
 		'id'           => 'closemarketing-custom-admin', // Unique ID for hashing notices for multiple instances of TGMPA.
