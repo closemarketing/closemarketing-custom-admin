@@ -152,78 +152,10 @@ class CMK_Resize_Images_Before_Upload {
 			return $plupload_setting_array;
 	}
 
-	// Register and define the settings
-	function admin_init_settings() {
-
-		// create settings section
-		add_settings_section(
-			'cmk_media_settings_section',
-			'Resize before upload',
-			array( $this, 'media_settings_section_callback_function' ),
-			'media'
-		);
-
-		// settings, put it in our new section
-		add_settings_field(
-			'cmk_resize_quality',
-			'Resize quality',
-			array( $this, 'resize_quality_callback_function' ),
-			'media',
-			'cmk_media_settings_section'
-		);
-
-		// settings, put it in our new section
-		add_settings_field(
-			'cmk_resize_height',
-			'Resize height',
-			array( $this, 'resize_height_callback_function' ),
-			'media',
-			'cmk_media_settings_section'
-		);
-		// settings, put it in our new section
-		add_settings_field(
-			'cmk_resize_width',
-			'Resize width',
-			array( $this, 'resize_width_callback_function' ),
-			'media',
-			'cmk_media_settings_section'
-		);
-
-		add_settings_field( 'cmk_cancel_force_flash', __( 'Disable force flash', 'closemarketing-custom-admin' ), array( $this, 'cancel_force_flash_callback_function' ), 'media', 'cmk_media_settings_section' );
-
-		// Register our setting so that $_POST handling is done for us and
-		register_setting( 'media', 'cmk_resize_quality', array( $this, 'resize_quality_validate_input' ) );
-		register_setting( 'media', 'cmk_resize_height' );
-		register_setting( 'media', 'cmk_resize_width' );
-		register_setting( 'media', 'cmk_cancel_force_flash' );
-	}
-
-	function media_settings_section_callback_function() {
-		// output nothing at this stage.
-	}
-
-	function resize_quality_callback_function() {
-		echo '<input name="cmk_resize_quality" id="cmk_resize_quality" type="text" value="' . $this->get_resize_quality() . '" class="small-text" /> <em class="description">' . __( '1 - 100   (a low quality value will result in a considerably smaller file size and lower quality images - 80 is optimum)', 'closemarketing-custom-admin' ) . '</em>';
-	}
-
-	function resize_width_callback_function() {
-		echo '<input name="cmk_resize_width" id="cmk_resize_width" type="text" value="' . $this->get_resize_width() . '" class="small-text" /> <em class="description">' . __( 'you can override this by setting CMK_RESIZE_WIDTH in your wp-config file', 'closemarketing-custom-admin' ) . '</em>';
-	}
-
-	function resize_height_callback_function() {
-		echo '<input name="cmk_resize_height" id="cmk_resize_height" type="text" value="' . $this->get_resize_height() . '" class="small-text" /> <em class="description">' . __( 'you can override this by setting CMK_RESIZE_HEIGHT in your wp-config file', 'closemarketing-custom-admin' ) . '</em>';
-	}
-
-	function cancel_force_flash_callback_function() {
-		echo '<input name="cmk_cancel_force_flash" id="cmk_cancel_force_flash" type="checkbox" value="1" ' . checked( 1, get_option( 'cmk_cancel_force_flash' ), false ) . ' class="small-text" /> <em class="description">' . __( 'Do not force the Flash uploader for non Chrome/Firefox browsers.', 'closemarketing-custom-admin' ) . '</em>';
-	}
-
 	function incompatible_browser() {
-
 		if ( ! preg_match( '#Firefox|Chrome|iPad|iPhone|Opera|Safari#', $_SERVER['HTTP_USER_AGENT'] ) ) {
 			return true;
 		}
-
 		return false;
 	}
 
@@ -243,45 +175,6 @@ class CMK_Resize_Images_Before_Upload {
 			return 80;
 		}
 
-	}
-
-	function get_resize_quality() {
-
-		// get quality out of settings
-		$quality = get_option( 'cmk_resize_quality' );
-
-		// return quality or default setting
-		if ( $quality > 0 && $quality < 101 ) {
-			return $quality;
-		} else {
-			return 80;
-		}
-	}
-
-	function get_resize_width() {
-
-		// get quality out of settings
-		$width = get_option( 'cmk_resize_width' );
-
-		// return width or false
-		if ( $width ) {
-			return $width;
-		} else {
-			return get_option( 'large_size_w' );
-		}
-	}
-
-	function get_resize_height() {
-
-		// get quality out of settings
-		$height = get_option( 'cmk_resize_height' );
-
-		// return width or false
-		if ( $height ) {
-			return $height;
-		} else {
-			return get_option( 'large_size_h' );
-		}
 	}
 
 }
