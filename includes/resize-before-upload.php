@@ -1,8 +1,12 @@
 <?php
-/*
-Library: Resize images before upload
-*/
-
+/**
+ * Library to crop images
+ *
+ * @package    WordPress
+ * @author     David Perez <david@closemarketing.es>
+ * @copyright  2019 Closemarketing
+ * @version    1.0
+ */
 class CMK_Resize_Images_Before_Upload {
 
 	/**
@@ -11,22 +15,6 @@ class CMK_Resize_Images_Before_Upload {
 	 * @return void
 	 */
 	function __construct() {
-
-		if ( ! defined( 'CMK_RESIZE_WIDTH' ) ) {
-			define( 'CMK_RESIZE_WIDTH', $this->get_resize_width() );
-		}
-		if ( ! defined( 'CMK_RESIZE_HEIGHT' ) ) {
-			define( 'CMK_RESIZE_HEIGHT', $this->get_resize_height() );
-		}
-		if ( ! defined( 'CMK_RESIZE_QUALITY' ) ) {
-			define( 'CMK_RESIZE_QUALITY', $this->get_resize_quality() );
-		}
-		if ( ! defined( 'CMK_MAX_UPLOAD_SIZE' ) ) {
-			define( 'CMK_MAX_UPLOAD_SIZE', $this->get_max_upload() );
-		}
-		if ( ! defined( 'CMK_FRONTEND_JS' ) ) {
-			define( 'CMK_FRONTEND_JS', false );
-		}
 
 		// store the flash warning seen variable as a session
 		if ( isset( $_GET['you_toldmeabout_flash'] ) ) {
@@ -42,7 +30,6 @@ class CMK_Resize_Images_Before_Upload {
 		if ( CMK_FRONTEND_JS == true ) {
 			add_action( 'CMK_footer', array( $this, 'cmk_print_js' ), 10 ); // it's possible to have the media manager on the front end too, but you should ask for it :)
 		}
-		add_action( 'admin_init', array( $this, 'admin_init_settings' ), 20 );
 
 	} //construct
 
@@ -65,29 +52,19 @@ class CMK_Resize_Images_Before_Upload {
 		$quality = $this->get_resize_quality();
 		?>
 	<script type="text/javascript"> 
-		
 		jQuery(window).load(function($){
-		
 				try{ 
 					if (uploader =='undefined' );
-					
 							uploader.settings.max_file_size = '200097152b';
 							uploader.settings['resize'] = { width: <?php echo CMK_RESIZE_WIDTH; ?>, height: <?php echo CMK_RESIZE_HEIGHT; ?>, quality: <?php echo CMK_RESIZE_QUALITY; ?>  };
-					
 				}catch(err){ }
-					
-					
-				
 		});
-
 	</script>
 		<?php
 
 		if ( $this->incompatible_browser() && ! isset( $_SESSION['you_toldmeabout_flash'] ) ) {
-
 			?>
 			<script type="text/javascript">
-				
 				var hasFlash = false;
 				try {
 				  var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
