@@ -13,6 +13,16 @@
 // * Remove version WordPress.
 remove_action( 'wp_head', 'wp_generator' );
 
+add_action( 'admin_menu', 'cmk_remove_genesis_page_scripts_box' );
+/**
+ * Removes scripts metabox
+ *
+ * @return void
+ */
+function cmk_remove_genesis_page_scripts_box() {
+	remove_meta_box( 'genesis_inpost_scripts_box', 'page', 'normal' ); 
+}
+
 if ( function_exists( 'cmk_enqueue_scripts_styles' ) ) {
 	add_action( 'wp_enqueue_scripts', 'cmk_enqueue_scripts_styles' );
 	/**
@@ -85,13 +95,6 @@ if ( function_exists( 'cmk_remove_scripts_meta_boxes' ) ) {
 	}
 }
 
-if ( function_exists( 'cmk_favicon_filter' ) ) {
-	// * Display a custom favicon
-	add_filter( 'genesis_pre_load_favicon', 'cmk_favicon_filter' );
-	function cmk_favicon_filter( $favicon_url ) {
-		return get_stylesheet_directory_uri() . '/images/favicon.png';
-	}
-}
 if ( function_exists( 'cmk_show_excerpts' ) ) {
 	// * Show Excerpts regardless of Theme Settings
 	add_filter( 'genesis_pre_get_option_content_archive', 'cmk_show_excerpts' );

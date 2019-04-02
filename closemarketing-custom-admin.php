@@ -19,7 +19,6 @@ load_plugin_textdomain( 'closemarketing-custom-admin', false, dirname( plugin_ba
 
 define( 'CMK_RESIZE_WIDTH', 1920 ); // 1000 px wide
 define( 'CMK_RESIZE_HEIGHT', 1920 ); // 900 px high
-
 define( 'CMK_RESIZE_QUALITY', 70 );
 define( 'CMK_MAX_UPLOAD_SIZE', '10971520b' );
 

@@ -450,16 +450,16 @@ class CCA_WPAdmin {
 		$seo_slug_with_stopwords = $seo_slug;
 		$seo_language = strtolower( substr( get_bloginfo ( 'language' ), 0, 2 ) ); 	// Check the language; we only want the first two letters
 		if ( $seo_language == 'en' ) { // Check if blog language is English (en)
-			$seo_slug_array = array_diff (explode(" ", $seo_slug), cmk_seo_slugs_stop_words_en()); // Turn it to an array and strip common/stop word by comparing against ENGLISH array
+			$seo_slug_array = array_diff (explode(" ", $seo_slug), $this->seo_slugs_stop_words_en() ); // Turn it to an array and strip common/stop word by comparing against ENGLISH array
 			$seo_slug = join("-", $seo_slug_array);	// Turn the sanitized array into a string
 		} elseif ( $seo_language == 'es' ) { // Check if blog language is Spanish (es)
-			$seo_slug_array = array_diff (explode(" ", $seo_slug), cmk_seo_slugs_stop_words_es()); // Turn it to an array and strip common/stop word by comparing against SPANISH array
+			$seo_slug_array = array_diff (explode(" ", $seo_slug), $this->seo_slugs_stop_words_es() ); // Turn it to an array and strip common/stop word by comparing against SPANISH array
 			$seo_slug = join("-", $seo_slug_array);	// Turn the sanitized array into a string
 		} elseif ( $seo_language == 'de' ) { // Check if blog language is German (de)
-			$seo_slug_array = array_diff (explode(" ", $seo_slug), cmk_seo_slugs_stop_words_de()); // Turn it to an array and strip common/stop word by comparing against GERMAN array
+			$seo_slug_array = array_diff (explode(" ", $seo_slug), $this->seo_slugs_stop_words_de() ); // Turn it to an array and strip common/stop word by comparing against GERMAN array
 			$seo_slug = join("-", $seo_slug_array);	// Turn the sanitized array into a string
 		} elseif ( $seo_language == 'fr' ) { // Check if blog language is German (de)
-			$seo_slug_array = array_diff (explode(" ", $seo_slug), cmk_seo_slugs_stop_words_fr()); // Turn it to an array and strip common/stop word by comparing against GERMAN array
+			$seo_slug_array = array_diff (explode(" ", $seo_slug), $this->seo_slugs_stop_words_fr() ); // Turn it to an array and strip common/stop word by comparing against GERMAN array
 			$seo_slug = join("-", $seo_slug_array);	// Turn the sanitized array into a string
 		}
 		$seo_slug = preg_replace ("/[^a-zA-Z0-9 \']-/", "", $seo_slug); // Kill anything that is not a letter, digit, space or apostrophe
@@ -471,8 +471,7 @@ class CCA_WPAdmin {
 		if (empty($post_name)) { $_POST['new_slug'] = $seo_slug; } // We don't want to change an existing slug
 	}
 
-
-	function cmk_seo_slugs( $slug ) {
+	public function seo_slugs( $slug ) {
 
 		if ( $slug ) {
 			// We don't want to change an existing slug
