@@ -39,12 +39,13 @@ In WooCommerce enhacements:
 
 Others Plugins:
 
-- [Gravity Forms CRM Addon](http://codecanyon.net/item/gravity-forms-crm-addon/10521695)
+- [Gravity Forms CRM Addon](https://codecanyon.net/item/gravity-forms-crm-addon/10521695)
+- [WordPress Spanish Translations for Premium Plugins](https://codecanyon.net/item/wordpress-translations-for-premium-plugins/21315424)
+- [WooCommerce Wash Care Icons](https://codecanyon.net/item/wc-wash-care-for-products/22357120)
 - [Gravity Forms in Spanish](https://wordpress.org/plugins/gravityforms-es/)
-- [Clean HTML in Editor](https://wordpress.org/plugins/clean-html/)
-- [Send SMS to Wordpress Users via Arsys](https://wordpress.org/plugins/send-sms-arsys/)
+- [Gravity Forms Mailerlite](https://wordpress.org/plugins/connector-gravityforms-mailerlite/)
 
-Made by [Closemarketing](https://www.closemarketing.es/)
+Made by [Closemarketing](https://www.closemarketing.net/)
 
 == Installation ==
 
