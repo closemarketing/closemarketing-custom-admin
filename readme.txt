@@ -3,9 +3,9 @@ Contributors: closemarketing, davidperez
 Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
-Tested up to: 4.9.8
-Stable tag: 1.1
-Version: 1.1
+Tested up to: 5.2.1
+Stable tag: 1.2
+Version: 1.2
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -58,6 +58,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 == Changelog ==
 = 1.2 =
 *   Rewritten class for admin.
+*   PHP Coding standards.
 
 = 1.1 =
 *   Fixes duplicated content in WooCommerce taxonomies.
