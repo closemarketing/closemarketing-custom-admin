@@ -14,9 +14,9 @@ class CMK_Resize_Images_Before_Upload {
 	 *
 	 * @return void
 	 */
-	function __construct() {
+	public function __construct() {
 
-		// store the flash warning seen variable as a session
+		// store the flash warning seen variable as a session.
 		if ( isset( $_GET['you_toldmeabout_flash'] ) ) {
 			$_SESSION['you_toldmeabout_flash'] = 'donttellmeagain';
 		}
@@ -26,10 +26,7 @@ class CMK_Resize_Images_Before_Upload {
 		add_filter( 'plupload_default_params', array( $this, 'cmk_plupload_default_settings' ), 20 );
 
 		add_action( 'post-upload-ui', array( $this, 'cmk_show_note' ), 10 );
-		add_action( 'admin_footer', array( $this, 'cmk_print_js' ), 10 ); // javascript output is only for the old uploader, new uploader uses plupload_default_settings/plupload_init
-		if ( CMK_FRONTEND_JS == true ) {
-			add_action( 'CMK_footer', array( $this, 'cmk_print_js' ), 10 ); // it's possible to have the media manager on the front end too, but you should ask for it :)
-		}
+		add_action( 'admin_footer', array( $this, 'cmk_print_js' ), 10 );
 
 	} //construct
 
@@ -48,18 +45,18 @@ class CMK_Resize_Images_Before_Upload {
 	}
 
 
-	function cmk_print_js() {
-		$quality = $this->get_resize_quality();
+	public function cmk_print_js() {
+		$quality = CMK_RESIZE_QUALITY;
 		?>
-	<script type="text/javascript"> 
-		jQuery(window).load(function($){
-				try{ 
-					if (uploader =='undefined' );
-							uploader.settings.max_file_size = '200097152b';
-							uploader.settings['resize'] = { width: <?php echo CMK_RESIZE_WIDTH; ?>, height: <?php echo CMK_RESIZE_HEIGHT; ?>, quality: <?php echo CMK_RESIZE_QUALITY; ?>  };
-				}catch(err){ }
-		});
-	</script>
+		<script type="text/javascript"> 
+			jQuery(window).load(function($){
+					try{ 
+						if (uploader =='undefined' );
+								uploader.settings.max_file_size = '200097152b';
+								uploader.settings['resize'] = { width: <?php echo CMK_RESIZE_WIDTH; ?>, height: <?php echo CMK_RESIZE_HEIGHT; ?>, quality: <?php echo CMK_RESIZE_QUALITY; ?>  };
+					}catch(err){ }
+			});
+		</script>
 		<?php
 
 		if ( $this->incompatible_browser() && ! isset( $_SESSION['you_toldmeabout_flash'] ) ) {

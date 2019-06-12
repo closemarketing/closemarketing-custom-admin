@@ -1,7 +1,12 @@
 <?php
-
-/* # WooCommerce
----------------------------------------------------------------------------------------------------- */
+/**
+ * Library for WooCommerce Enhacements
+ *
+ * @package    WordPress
+ * @author     David Perez <david@closemarketing.es>
+ * @copyright  2019 Closemarketing
+ * @version    1.0
+ */
 
 if ( function_exists( 'cmk_theme_setup' ) ) {
 	add_action( 'after_setup_theme', 'cmk_theme_setup' );

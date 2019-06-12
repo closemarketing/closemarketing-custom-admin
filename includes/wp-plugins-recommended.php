@@ -1,9 +1,21 @@
 <?php
-/************* PLUGINS RECOMMENDED *****************/
-require_once dirname(__FILE__) . '/class-tgm-plugin-activation.php';
+/**
+ * Plugins recommended
+ *
+ * @package    WordPress
+ * @author     David Perez <david@closemarketing.es>
+ * @copyright  2019 Closemarketing
+ * @version    1.0
+ */
 
-add_action('tgmpa_register', 'cmk_register_required_plugins');
+require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
+add_action( 'tgmpa_register', 'cmk_register_required_plugins' );
+/**
+ * Register plugins necessary for Closemarketing webs
+ *
+ * @return void
+ */
 function cmk_register_required_plugins() {
 
 	//* Recommended for Woocoommerce
@@ -16,8 +28,8 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'WooCommerce Quantity Increment',
-			'slug'     => 'woocommerce-quantity-increment',
+			'name'     => 'SMNTCS WooCommerce Quantity Buttons',
+			'slug'     => 'smntcs-woocommerce-quantity-buttons',
 			'required' => false,
 		),
 
@@ -191,12 +203,6 @@ function cmk_register_required_plugins() {
 			'slug'     => 'atomic-blocks',
 			'required' => false,
 		),
-
-		array(
-			'name'     => 'SVG Support',
-			'slug'     => 'svg-support',
-			'required' => true,
-		),
 		array(
 			'name'   => 'WP Sync DB',
 			'slug'   => 'wp-sync-db',
@@ -216,13 +222,16 @@ function cmk_register_required_plugins() {
 		$plugins = $plugins_woo;
 	}
 
-	$tld = substr( $_SERVER['HTTP_HOST'], -3 );
+	$server_host = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
 
-	if ( $_SERVER['HTTP_HOST'] == 'localhost' || $tld == 'loc' || $tld == 'dev' ) {
+	$tld = substr( $server_host, -3 );
+
+	if ( 'localhost' === $server_host || 'loc' === $tld || 'dev' === $tld ) {
 		$plugins = array_merge( $plugins, $plugins_generic, $plugins_local );
 	} else {
 		$plugins = array_merge( $plugins, $plugins_generic, $plugins_live );
 	}
+
 	/*
 	* Array of configuration settings. Amend each line as needed.
 	*
@@ -244,10 +253,10 @@ function cmk_register_required_plugins() {
 		'is_automatic' => false, // Automatically activate plugins after installation or not.
 		'message'      => '', // Message to output right before the plugins table.
 		'strings'      => array(
-			'page_title'                      => __('Install Required Plugins', 'closemarketing-custom-admin'),
-			'menu_title'                      => __('Install Plugins', 'closemarketing-custom-admin'),
-			'installing'                      => __('Installing Plugin: %s', 'closemarketing-custom-admin'), // %s = plugin name.
-			'oops'                            => __('Something went wrong with the plugin API.', 'closemarketing-custom-admin'),
+			'page_title'                      => __( 'Install Required Plugins', 'closemarketing-custom-admin' ),
+			'menu_title'                      => __( 'Install Plugins', 'closemarketing-custom-admin' ),
+			'installing'                      => __( 'Installing Plugin: %s', 'closemarketing-custom-admin' ), // %s = plugin name.
+			'oops'                            => __( 'Something went wrong with the plugin API.', 'closemarketing-custom-admin' ),
 			'notice_can_install_required'     => _n_noop(
 				'Closemarketing requires the following plugin: %1$s.',
 				'Closemarketing requires the following plugins: %1$s.',
@@ -320,5 +329,5 @@ function cmk_register_required_plugins() {
 		),
 	);
 
-	tgmpa($plugins, $config);
+	tgmpa( $plugins, $config );
 }

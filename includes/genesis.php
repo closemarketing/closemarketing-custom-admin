@@ -13,14 +13,16 @@
 // * Remove version WordPress.
 remove_action( 'wp_head', 'wp_generator' );
 
-add_action( 'admin_menu', 'cmk_remove_genesis_page_scripts_box' );
+add_action( 'admin_menu', 'cmk_remove_genesis_page_scripts_box', 80 );
 /**
  * Removes scripts metabox
  *
  * @return void
  */
 function cmk_remove_genesis_page_scripts_box() {
-	remove_meta_box( 'genesis_inpost_scripts_box', 'page', 'normal' ); 
+	foreach ( get_post_types( '', 'names' ) as $post_type ) {
+		remove_meta_box( 'genesis_inpost_scripts_box', $post_type, 'normal' ); 
+	}
 }
 
 if ( function_exists( 'cmk_enqueue_scripts_styles' ) ) {
