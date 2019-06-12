@@ -1,8 +1,12 @@
 <?php
-/*
-Library: Resize images before upload
-*/
-
+/**
+ * Library to crop images
+ *
+ * @package    WordPress
+ * @author     David Perez <david@closemarketing.es>
+ * @copyright  2019 Closemarketing
+ * @version    1.0
+ */
 class CMK_Resize_Images_Before_Upload {
 
 	/**
@@ -10,25 +14,9 @@ class CMK_Resize_Images_Before_Upload {
 	 *
 	 * @return void
 	 */
-	function __construct() {
+	public function __construct() {
 
-		if ( ! defined( 'CMK_RESIZE_WIDTH' ) ) {
-			define( 'CMK_RESIZE_WIDTH', $this->get_resize_width() );
-		}
-		if ( ! defined( 'CMK_RESIZE_HEIGHT' ) ) {
-			define( 'CMK_RESIZE_HEIGHT', $this->get_resize_height() );
-		}
-		if ( ! defined( 'CMK_RESIZE_QUALITY' ) ) {
-			define( 'CMK_RESIZE_QUALITY', $this->get_resize_quality() );
-		}
-		if ( ! defined( 'CMK_MAX_UPLOAD_SIZE' ) ) {
-			define( 'CMK_MAX_UPLOAD_SIZE', $this->get_max_upload() );
-		}
-		if ( ! defined( 'CMK_FRONTEND_JS' ) ) {
-			define( 'CMK_FRONTEND_JS', false );
-		}
-
-		// store the flash warning seen variable as a session
+		// store the flash warning seen variable as a session.
 		if ( isset( $_GET['you_toldmeabout_flash'] ) ) {
 			$_SESSION['you_toldmeabout_flash'] = 'donttellmeagain';
 		}
@@ -38,11 +26,7 @@ class CMK_Resize_Images_Before_Upload {
 		add_filter( 'plupload_default_params', array( $this, 'cmk_plupload_default_settings' ), 20 );
 
 		add_action( 'post-upload-ui', array( $this, 'cmk_show_note' ), 10 );
-		add_action( 'admin_footer', array( $this, 'cmk_print_js' ), 10 ); // javascript output is only for the old uploader, new uploader uses plupload_default_settings/plupload_init
-		if ( CMK_FRONTEND_JS == true ) {
-			add_action( 'CMK_footer', array( $this, 'cmk_print_js' ), 10 ); // it's possible to have the media manager on the front end too, but you should ask for it :)
-		}
-		add_action( 'admin_init', array( $this, 'admin_init_settings' ), 20 );
+		add_action( 'admin_footer', array( $this, 'cmk_print_js' ), 10 );
 
 	} //construct
 
@@ -61,33 +45,23 @@ class CMK_Resize_Images_Before_Upload {
 	}
 
 
-	function cmk_print_js() {
-		$quality = $this->get_resize_quality();
+	public function cmk_print_js() {
+		$quality = CMK_RESIZE_QUALITY;
 		?>
-	<script type="text/javascript"> 
-		
-		jQuery(window).load(function($){
-		
-				try{ 
-					if (uploader =='undefined' );
-					
-							uploader.settings.max_file_size = '200097152b';
-							uploader.settings['resize'] = { width: <?php echo CMK_RESIZE_WIDTH; ?>, height: <?php echo CMK_RESIZE_HEIGHT; ?>, quality: <?php echo CMK_RESIZE_QUALITY; ?>  };
-					
-				}catch(err){ }
-					
-					
-				
-		});
-
-	</script>
+		<script type="text/javascript"> 
+			jQuery(window).load(function($){
+					try{ 
+						if (uploader =='undefined' );
+								uploader.settings.max_file_size = '200097152b';
+								uploader.settings['resize'] = { width: <?php echo CMK_RESIZE_WIDTH; ?>, height: <?php echo CMK_RESIZE_HEIGHT; ?>, quality: <?php echo CMK_RESIZE_QUALITY; ?>  };
+					}catch(err){ }
+			});
+		</script>
 		<?php
 
 		if ( $this->incompatible_browser() && ! isset( $_SESSION['you_toldmeabout_flash'] ) ) {
-
 			?>
 			<script type="text/javascript">
-				
 				var hasFlash = false;
 				try {
 				  var fo = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
@@ -152,78 +126,10 @@ class CMK_Resize_Images_Before_Upload {
 			return $plupload_setting_array;
 	}
 
-	// Register and define the settings
-	function admin_init_settings() {
-
-		// create settings section
-		add_settings_section(
-			'cmk_media_settings_section',
-			'Resize before upload',
-			array( $this, 'media_settings_section_callback_function' ),
-			'media'
-		);
-
-		// settings, put it in our new section
-		add_settings_field(
-			'cmk_resize_quality',
-			'Resize quality',
-			array( $this, 'resize_quality_callback_function' ),
-			'media',
-			'cmk_media_settings_section'
-		);
-
-		// settings, put it in our new section
-		add_settings_field(
-			'cmk_resize_height',
-			'Resize height',
-			array( $this, 'resize_height_callback_function' ),
-			'media',
-			'cmk_media_settings_section'
-		);
-		// settings, put it in our new section
-		add_settings_field(
-			'cmk_resize_width',
-			'Resize width',
-			array( $this, 'resize_width_callback_function' ),
-			'media',
-			'cmk_media_settings_section'
-		);
-
-		add_settings_field( 'cmk_cancel_force_flash', __( 'Disable force flash', 'closemarketing-custom-admin' ), array( $this, 'cancel_force_flash_callback_function' ), 'media', 'cmk_media_settings_section' );
-
-		// Register our setting so that $_POST handling is done for us and
-		register_setting( 'media', 'cmk_resize_quality', array( $this, 'resize_quality_validate_input' ) );
-		register_setting( 'media', 'cmk_resize_height' );
-		register_setting( 'media', 'cmk_resize_width' );
-		register_setting( 'media', 'cmk_cancel_force_flash' );
-	}
-
-	function media_settings_section_callback_function() {
-		// output nothing at this stage.
-	}
-
-	function resize_quality_callback_function() {
-		echo '<input name="cmk_resize_quality" id="cmk_resize_quality" type="text" value="' . $this->get_resize_quality() . '" class="small-text" /> <em class="description">' . __( '1 - 100   (a low quality value will result in a considerably smaller file size and lower quality images - 80 is optimum)', 'closemarketing-custom-admin' ) . '</em>';
-	}
-
-	function resize_width_callback_function() {
-		echo '<input name="cmk_resize_width" id="cmk_resize_width" type="text" value="' . $this->get_resize_width() . '" class="small-text" /> <em class="description">' . __( 'you can override this by setting CMK_RESIZE_WIDTH in your wp-config file', 'closemarketing-custom-admin' ) . '</em>';
-	}
-
-	function resize_height_callback_function() {
-		echo '<input name="cmk_resize_height" id="cmk_resize_height" type="text" value="' . $this->get_resize_height() . '" class="small-text" /> <em class="description">' . __( 'you can override this by setting CMK_RESIZE_HEIGHT in your wp-config file', 'closemarketing-custom-admin' ) . '</em>';
-	}
-
-	function cancel_force_flash_callback_function() {
-		echo '<input name="cmk_cancel_force_flash" id="cmk_cancel_force_flash" type="checkbox" value="1" ' . checked( 1, get_option( 'cmk_cancel_force_flash' ), false ) . ' class="small-text" /> <em class="description">' . __( 'Do not force the Flash uploader for non Chrome/Firefox browsers.', 'closemarketing-custom-admin' ) . '</em>';
-	}
-
 	function incompatible_browser() {
-
 		if ( ! preg_match( '#Firefox|Chrome|iPad|iPhone|Opera|Safari#', $_SERVER['HTTP_USER_AGENT'] ) ) {
 			return true;
 		}
-
 		return false;
 	}
 
@@ -243,45 +149,6 @@ class CMK_Resize_Images_Before_Upload {
 			return 80;
 		}
 
-	}
-
-	function get_resize_quality() {
-
-		// get quality out of settings
-		$quality = get_option( 'cmk_resize_quality' );
-
-		// return quality or default setting
-		if ( $quality > 0 && $quality < 101 ) {
-			return $quality;
-		} else {
-			return 80;
-		}
-	}
-
-	function get_resize_width() {
-
-		// get quality out of settings
-		$width = get_option( 'cmk_resize_width' );
-
-		// return width or false
-		if ( $width ) {
-			return $width;
-		} else {
-			return get_option( 'large_size_w' );
-		}
-	}
-
-	function get_resize_height() {
-
-		// get quality out of settings
-		$height = get_option( 'cmk_resize_height' );
-
-		// return width or false
-		if ( $height ) {
-			return $height;
-		} else {
-			return get_option( 'large_size_h' );
-		}
 	}
 
 }

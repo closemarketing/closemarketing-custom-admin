@@ -1,9 +1,21 @@
 <?php
-/************* PLUGINS RECOMMENDED *****************/
-require_once dirname(__FILE__) . '/class-tgm-plugin-activation.php';
+/**
+ * Plugins recommended
+ *
+ * @package    WordPress
+ * @author     David Perez <david@closemarketing.es>
+ * @copyright  2019 Closemarketing
+ * @version    1.0
+ */
 
-add_action('tgmpa_register', 'cmk_register_required_plugins');
+require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
+add_action( 'tgmpa_register', 'cmk_register_required_plugins' );
+/**
+ * Register plugins necessary for Closemarketing webs
+ *
+ * @return void
+ */
 function cmk_register_required_plugins() {
 
 	//* Recommended for Woocoommerce
@@ -16,20 +28,14 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'WooCommerce Quantity Increment',
-			'slug'     => 'woocommerce-quantity-increment',
+			'name'     => 'SMNTCS WooCommerce Quantity Buttons',
+			'slug'     => 'smntcs-woocommerce-quantity-buttons',
 			'required' => false,
 		),
 
 		array(
 			'name'     => 'WooCommerce Menu Cart',
 			'slug'     => 'woocommerce-menu-bar-cart',
-			'required' => false,
-		),
-
-		array(
-			'name'     => 'WooCommerce Google Analytics Integration',
-			'slug'     => 'woocommerce-google-analytics-integration',
 			'required' => false,
 		),
 
@@ -47,6 +53,12 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Simply Show Hooks',
 			'slug'     => 'simply-show-hooks',
+			'required' => false,
+		),
+
+		array(
+			'name'     => 'Query Monitor',
+			'slug'     => 'query-monitor',
 			'required' => false,
 		),
 
@@ -68,8 +80,8 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Google Analytics by MonsterInsights',
-			'slug'     => 'google-analytics-for-wordpress',
+			'name'     => 'DuracellTomi Google Tag Manager para WordPress',
+			'slug'     => 'duracelltomi-google-tag-manager',
 			'required' => true,
 		),
 
@@ -88,6 +100,12 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Post Thumbnail Editor',
 			'slug'     => 'post-thumbnail-editor',
+			'required' => true,
+		),
+
+		array(
+			'name'     => 'Auto Image Attributes From Filename With Bulk Updater',
+			'slug'     => 'auto-image-attributes-from-filename-with-bulk-updater',
 			'required' => true,
 		),
 
@@ -122,19 +140,19 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Imagify Image Optimizer',
-			'slug'     => 'imagify',
+			'name'     => 'Smush Image Compression and Optimization',
+			'slug'     => 'wp-smushit',
 			'required' => false,
 		),
 		array(
-			'name'   => 'GravityForms for Mailerlite',
-			'slug'   => 'connector-gravityforms-mailerlite',
+			'name'     => 'GravityForms for Mailerlite',
+			'slug'     => 'connector-gravityforms-mailerlite',
 			'required' => true,
 		),
 
 	);
 
-	//* Generic
+	// Generic.
 	$plugins_generic = array(
 
 		array(
@@ -162,16 +180,16 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Posts 2 Posts',
-			'slug'     => 'posts-to-posts',
-			'required' => false,
-		),
-
-		array(
 			'name'        => 'WordPress SEO by Yoast',
 			'slug'        => 'wordpress-seo',
 			'is_callable' => 'wpseo_init',
 			'required'    => true,
+		),
+
+		array(
+			'name'     => 'WordPress SEO Plugin – Rank Math',
+			'slug'     => 'seo-by-rank-math',
+			'required' => false,
 		),
 
 		array(
@@ -181,21 +199,9 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Page Builder',
-			'slug'     => 'siteorigin-panels',
-			'required' => true,
-		),
-
-		array(
-			'name'     => 'Page Builder Widgets',
-			'slug'     => 'so-widgets-bundle',
-			'required' => true,
-		),
-
-		array(
-			'name'     => 'SVG Support',
-			'slug'     => 'svg-support',
-			'required' => true,
+			'name'     => 'Atomic Blocks – Gutenberg Blocks Collection',
+			'slug'     => 'atomic-blocks',
+			'required' => false,
 		),
 		array(
 			'name'   => 'WP Sync DB',
@@ -212,25 +218,28 @@ function cmk_register_required_plugins() {
 
 	$plugins = array();
 
-	if (class_exists('WooCommerce')) {
+	if ( class_exists( 'WooCommerce' ) ) {
 		$plugins = $plugins_woo;
 	}
 
-	$tld = substr($_SERVER['HTTP_HOST'], -3);
+	$server_host = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
 
-	if ($_SERVER['HTTP_HOST'] == 'localhost' || $tld == 'loc' || $tld == 'dev') {
-		$plugins = array_merge($plugins, $plugins_generic, $plugins_local);
+	$tld = substr( $server_host, -3 );
+
+	if ( 'localhost' === $server_host || 'loc' === $tld || 'dev' === $tld ) {
+		$plugins = array_merge( $plugins, $plugins_generic, $plugins_local );
 	} else {
-		$plugins = array_merge($plugins, $plugins_generic, $plugins_live);
+		$plugins = array_merge( $plugins, $plugins_generic, $plugins_live );
 	}
+
 	/*
-		     * Array of configuration settings. Amend each line as needed.
-		     *
-		     * TGMPA will start providing localized text strings soon. If you already have translations of our standard
-		     * strings available, please help us make TGMPA even better by giving us access to these translations or by
-		     * sending in a pull-request with .po file(s) with the translations.
-		     *
-		     * Only uncomment the strings in the config array if you want to customize the strings.
+	* Array of configuration settings. Amend each line as needed.
+	*
+	* TGMPA will start providing localized text strings soon. If you already have translations of our standard
+	* strings available, please help us make TGMPA even better by giving us access to these translations or by
+	* sending in a pull-request with .po file(s) with the translations.
+	*
+	* Only uncomment the strings in the config array if you want to customize the strings.
 	*/
 	$config = array(
 		'id'           => 'closemarketing-custom-admin', // Unique ID for hashing notices for multiple instances of TGMPA.
@@ -244,10 +253,10 @@ function cmk_register_required_plugins() {
 		'is_automatic' => false, // Automatically activate plugins after installation or not.
 		'message'      => '', // Message to output right before the plugins table.
 		'strings'      => array(
-			'page_title'                      => __('Install Required Plugins', 'closemarketing-custom-admin'),
-			'menu_title'                      => __('Install Plugins', 'closemarketing-custom-admin'),
-			'installing'                      => __('Installing Plugin: %s', 'closemarketing-custom-admin'), // %s = plugin name.
-			'oops'                            => __('Something went wrong with the plugin API.', 'closemarketing-custom-admin'),
+			'page_title'                      => __( 'Install Required Plugins', 'closemarketing-custom-admin' ),
+			'menu_title'                      => __( 'Install Plugins', 'closemarketing-custom-admin' ),
+			'installing'                      => __( 'Installing Plugin: %s', 'closemarketing-custom-admin' ), // %s = plugin name.
+			'oops'                            => __( 'Something went wrong with the plugin API.', 'closemarketing-custom-admin' ),
 			'notice_can_install_required'     => _n_noop(
 				'Closemarketing requires the following plugin: %1$s.',
 				'Closemarketing requires the following plugins: %1$s.',
@@ -320,5 +329,5 @@ function cmk_register_required_plugins() {
 		),
 	);
 
-	tgmpa($plugins, $config);
+	tgmpa( $plugins, $config );
 }

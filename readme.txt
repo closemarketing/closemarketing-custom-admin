@@ -3,9 +3,9 @@ Contributors: closemarketing, davidperez
 Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
-Tested up to: 4.9.8
-Stable tag: 1.1
-Version: 1.1
+Tested up to: 5.2.1
+Stable tag: 1.2
+Version: 1.2
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -39,12 +39,13 @@ In WooCommerce enhacements:
 
 Others Plugins:
 
-- [Gravity Forms CRM Addon](http://codecanyon.net/item/gravity-forms-crm-addon/10521695)
+- [Gravity Forms CRM Addon](https://codecanyon.net/item/gravity-forms-crm-addon/10521695)
+- [WordPress Spanish Translations for Premium Plugins](https://codecanyon.net/item/wordpress-translations-for-premium-plugins/21315424)
+- [WooCommerce Wash Care Icons](https://codecanyon.net/item/wc-wash-care-for-products/22357120)
 - [Gravity Forms in Spanish](https://wordpress.org/plugins/gravityforms-es/)
-- [Clean HTML in Editor](https://wordpress.org/plugins/clean-html/)
-- [Send SMS to Wordpress Users via Arsys](https://wordpress.org/plugins/send-sms-arsys/)
+- [Gravity Forms Mailerlite](https://wordpress.org/plugins/connector-gravityforms-mailerlite/)
 
-Made by [Closemarketing](https://www.closemarketing.es/)
+Made by [Closemarketing](https://www.closemarketing.net/)
 
 == Installation ==
 
@@ -56,6 +57,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
+= 1.2 =
+*   Rewritten class for admin.
+*   PHP Coding standards.
+
 = 1.1 =
 *   Fixes duplicated content in WooCommerce taxonomies.
 
