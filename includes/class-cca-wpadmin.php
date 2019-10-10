@@ -160,15 +160,25 @@ class CCA_WPAdmin {
 	public function custom_login_logo() {
 		echo '<style type="text/css">
 		h1 a { background-image:url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/logo-login.png) !important; }
-		p.galogin-powered {display: none;}
 		body.login {background: #85bb41 url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/login-background.gif) bottom left no-repeat; }
 		.login label {color:#395912;}
 		.login form {background: #b7da86;}
 		.wp-core-ui .button-primary {background-color: #395912; border-color: none;}
 		.wp-core-ui .button-primary.focus, .wp-core-ui .button-primary.hover, .wp-core-ui .button-primary:focus, .wp-core-ui .button-primary:hover {  background-color: #38710c;border-color: none; }
-		form#loginform p.galogin { background: none repeat scroll 0 0 #395912; }
 		.login #backtoblog a, .login #nav a { color: white; }
 		.login #backtoblog a:hover, .login #nav a:hover { color: #395912; }
+		form#loginform p.galogin { background-image:url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/btn_google_signin.png) !important; 
+			cursor:pointer;
+			border:none;
+			width:184px;
+			height:38px;
+			margin: 0 auto 15px;
+		}
+		form#loginform p.galogin:hover { background-image:url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/btn_google_signin-hover.png) !important;
+		}
+		.galogin a {display:block;
+			margin-left:-1000px;}
+		.galogin-powered,.galogin-or {display: none;}
 		</style>';
 	}
 
