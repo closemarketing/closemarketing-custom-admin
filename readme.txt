@@ -15,7 +15,6 @@ Makes some changes in WordPress admin for better customization in Closemarketing
 - Custom logo and login screen.
 - Unpublished posts in other colour.
 - Custom info.
-- Resizes images before upload.
 - Clean stop words from url.
 - Count Entries from Post Types in Dashboard.
 - Custom admin colour bar (diferent in local).
@@ -57,6 +56,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
+= 1.3 =
+*   Changed resize upload for plugin Smush.
+*   Added tld local as local enviroment.
+*   Adds minified file Gravity forms CSS.
+
 = 1.2.1 =
 *   Fixed slugs error bug.
 
