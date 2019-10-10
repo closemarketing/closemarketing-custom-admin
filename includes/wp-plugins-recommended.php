@@ -53,13 +53,13 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Simply Show Hooks',
 			'slug'     => 'simply-show-hooks',
-			'required' => false,
+			'required' => true,
 		),
 
 		array(
 			'name'     => 'Query Monitor',
 			'slug'     => 'query-monitor',
-			'required' => false,
+			'required' => true,
 		),
 
 	);
@@ -142,12 +142,12 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Smush Image Compression and Optimization',
 			'slug'     => 'wp-smushit',
-			'required' => false,
+			'required' => true,
 		),
 		array(
 			'name'     => 'GravityForms for Mailerlite',
 			'slug'     => 'connector-gravityforms-mailerlite',
-			'required' => true,
+			'required' => false,
 		),
 
 	);

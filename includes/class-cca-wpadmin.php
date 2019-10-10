@@ -179,20 +179,15 @@ class CCA_WPAdmin {
 	 */
 	public function change_bar_color() {
 		$server_host = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
+		$tldcal = explode( '.', $server_host );
+		$tld    = end( $tldcal );
 
-		if ( 'localhost' == $server_host ) {
+		if ( 'localhost' == $server_host || 'loc' === $tld || 'local' === $tld ) {
 			// local.
 			$color = 'red';
 		} else {
-			$tldcal = explode( '.', $server_host );
-			$tld    = end( $tldcal );
-			if ( 'loc' === $tld ) {
-				// local.
-				$color = 'red';
-			} else {
-				// live.
-				$color = '#85b83c';
-			}
+			// live.
+			$color = '#85b83c';	
 		}
 		echo '
 			<style>

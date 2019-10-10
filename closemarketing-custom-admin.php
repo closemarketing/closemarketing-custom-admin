@@ -5,7 +5,7 @@
  * Description: Enhacements WordPress admin for Closemarketing.
  * Author: davidperez
  * Author URI: https://www.closemarketing.es/
- * Version: 1.2.1
+ * Version: 1.3
  * Text Domain: closemarketing-custom-admin
  * Domain Path: /languages
  * License: GNU General Public License version 3.0
@@ -17,14 +17,8 @@
 // * Loads translation
 load_plugin_textdomain( 'closemarketing-custom-admin', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
-define( 'CMK_RESIZE_WIDTH', 1920 ); // 1000 px wide
-define( 'CMK_RESIZE_HEIGHT', 1920 ); // 900 px high
-define( 'CMK_RESIZE_QUALITY', 70 );
-define( 'CMK_MAX_UPLOAD_SIZE', '10971520b' );
 
 // * Includes Libraries for Closemarketing
-require_once dirname( __FILE__ ) . '/includes/resize-before-upload.php';
-
 require_once dirname( __FILE__ ) . '/includes/class-cca-wpadmin.php';
 
 // * Plugins recommended
@@ -43,3 +37,24 @@ $theme = wp_get_theme( 'genesis' );
 if ( basename( get_template_directory() ) === 'genesis' ) {
 	require_once dirname( __FILE__ ) . '/includes/genesis.php';
 }
+
+// * Add Gravityforms CSS.
+if ( class_exists( 'GFCommon' ) ) {
+	add_action( 'wp_print_styles', 'cca_remove_gravityforms_style' );
+	/**
+	 * Dequeues CSS original from Gravity Forms
+	 *
+	 * @return void
+	 */
+	function cca_remove_gravityforms_style() {
+		wp_dequeue_style( 'gforms_css' );
+		wp_enqueue_style(
+			'gforms_css',
+			plugin_dir_url( __FILE__ ) . 'includes/css/gravityforms.min.css',
+			null,
+			GFCommon::$version
+		);
+	}
+}
+
+

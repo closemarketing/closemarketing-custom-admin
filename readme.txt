@@ -3,9 +3,9 @@ Contributors: closemarketing, davidperez
 Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
-Tested up to: 5.2.1
-Stable tag: 1.2.1
-Version: 1.2.1
+Tested up to: 5.3
+Stable tag: 1.3
+Version: 1.3
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -15,7 +15,6 @@ Makes some changes in WordPress admin for better customization in Closemarketing
 - Custom logo and login screen.
 - Unpublished posts in other colour.
 - Custom info.
-- Resizes images before upload.
 - Clean stop words from url.
 - Count Entries from Post Types in Dashboard.
 - Custom admin colour bar (diferent in local).
@@ -57,6 +56,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
 
 == Changelog ==
+= 1.3 =
+*   Changed resize upload for plugin Smush.
+*   Added tld local as local enviroment.
+*   Adds minified file Gravity forms CSS.
+
 = 1.2.1 =
 *   Fixed slugs error bug.
 
