@@ -149,6 +149,11 @@ function cmk_register_required_plugins() {
 			'slug'     => 'connector-gravityforms-mailerlite',
 			'required' => false,
 		),
+		array(
+			'name'     => 'Event Tracking for Gravity Forms',
+			'slug'     => 'gravity-forms-google-analytics-event-tracking',
+			'required' => false,
+		),
 
 	);
 
@@ -226,7 +231,7 @@ function cmk_register_required_plugins() {
 
 	$tld = substr( $server_host, -3 );
 
-	if ( 'localhost' === $server_host || 'loc' === $tld || 'dev' === $tld ) {
+	if ( 'localhost' === $server_host || 'loc' === $tld || 'dev' === $tld || 'local' === $tld ) {
 		$plugins = array_merge( $plugins, $plugins_generic, $plugins_local );
 	} else {
 		$plugins = array_merge( $plugins, $plugins_generic, $plugins_live );
