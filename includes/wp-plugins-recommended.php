@@ -202,23 +202,16 @@ function cmk_register_required_plugins() {
 			'slug'     => 'genesis-translations',
 			'required' => true,
 		),
-
 		array(
 			'name'     => 'Atomic Blocks – Gutenberg Blocks Collection',
 			'slug'     => 'atomic-blocks',
 			'required' => false,
 		),
 		array(
-			'name'   => 'WP Sync DB',
-			'slug'   => 'wp-sync-db',
-			'source' => 'https://github.com/corysimmons/wp-sync-db/archive/master.zip',
+			'name'     => 'WP Synchro – Migrate WordPress database and files',
+			'slug'     => 'wpsynchro',
+			'required' => false,
 		),
-		array(
-			'name'   => 'WP Sync DB Files',
-			'slug'   => 'wp-sync-db-media-files',
-			'source' => 'https://github.com/wp-sync-db/wp-sync-db-media-files/archive/master.zip',
-		),
-
 	);
 
 	$plugins = array();
