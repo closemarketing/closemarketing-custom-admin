@@ -45,6 +45,12 @@ function cmk_register_required_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'Variation Swatches for WooCommerce',
+			'slug'     => 'variation-swatches-for-woocommerce',
+			'required' => false,
+		),
+
 	);
 
 	//* Recommended for local
@@ -66,6 +72,11 @@ function cmk_register_required_plugins() {
 
 	//* Recommended for live
 	$plugins_live = array(
+		array(
+			'name'     => 'Gutenberg',
+			'slug'     => 'gutenberg',
+			'required' => true,
+		),
 
 		array(
 			'name'     => 'Cookie Notice',
@@ -100,7 +111,7 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Post Thumbnail Editor',
 			'slug'     => 'post-thumbnail-editor',
-			'required' => true,
+			'required' => false,
 		),
 
 		array(
@@ -147,6 +158,11 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'GravityForms for Mailerlite',
 			'slug'     => 'connector-gravityforms-mailerlite',
+			'required' => false,
+		),
+		array(
+			'name'     => 'Event Tracking for Gravity Forms',
+			'slug'     => 'gravity-forms-google-analytics-event-tracking',
 			'required' => false,
 		),
 
@@ -197,23 +213,16 @@ function cmk_register_required_plugins() {
 			'slug'     => 'genesis-translations',
 			'required' => true,
 		),
-
 		array(
 			'name'     => 'Atomic Blocks – Gutenberg Blocks Collection',
 			'slug'     => 'atomic-blocks',
 			'required' => false,
 		),
 		array(
-			'name'   => 'WP Sync DB',
-			'slug'   => 'wp-sync-db',
-			'source' => 'https://github.com/corysimmons/wp-sync-db/archive/master.zip',
+			'name'     => 'WP Synchro – Migrate WordPress database and files',
+			'slug'     => 'wpsynchro',
+			'required' => false,
 		),
-		array(
-			'name'   => 'WP Sync DB Files',
-			'slug'   => 'wp-sync-db-media-files',
-			'source' => 'https://github.com/wp-sync-db/wp-sync-db-media-files/archive/master.zip',
-		),
-
 	);
 
 	$plugins = array();
@@ -226,7 +235,7 @@ function cmk_register_required_plugins() {
 
 	$tld = substr( $server_host, -3 );
 
-	if ( 'localhost' === $server_host || 'loc' === $tld || 'dev' === $tld ) {
+	if ( 'localhost' === $server_host || 'loc' === $tld || 'dev' === $tld || 'local' === $tld ) {
 		$plugins = array_merge( $plugins, $plugins_generic, $plugins_local );
 	} else {
 		$plugins = array_merge( $plugins, $plugins_generic, $plugins_live );

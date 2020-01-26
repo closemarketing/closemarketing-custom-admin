@@ -4,8 +4,8 @@ Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
 Tested up to: 5.3
-Stable tag: 1.3
-Version: 1.3
+Stable tag: 1.4
+Version: 1.4
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -53,9 +53,13 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Developers ==
-[Official Repository Github](https://github.com/closemarketing/bootstrap-shortcodes-for-content)
+[Official Repository Github](https://github.com/closemarketing/closemarketing-custom-admin)
 
 == Changelog ==
+= 1.4 =
+*   Updated list of plugins.
+*   Updated admin color.
+
 = 1.3 =
 *   Changed resize upload for plugin Smush.
 *   Added tld local as local enviroment.
