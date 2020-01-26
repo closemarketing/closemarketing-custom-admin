@@ -197,7 +197,7 @@ class CCA_WPAdmin {
 			$color = 'red';
 		} else {
 			// live.
-			$color = '#85b83c';	
+			$color = '#84ce6d';	
 		}
 		echo '
 			<style>
