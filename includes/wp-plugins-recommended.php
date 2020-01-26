@@ -45,6 +45,12 @@ function cmk_register_required_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'Variation Swatches for WooCommerce',
+			'slug'     => 'variation-swatches-for-woocommerce',
+			'required' => false,
+		),
+
 	);
 
 	//* Recommended for local
@@ -66,6 +72,11 @@ function cmk_register_required_plugins() {
 
 	//* Recommended for live
 	$plugins_live = array(
+		array(
+			'name'     => 'Gutenberg',
+			'slug'     => 'gutenberg',
+			'required' => true,
+		),
 
 		array(
 			'name'     => 'Cookie Notice',
@@ -100,7 +111,7 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Post Thumbnail Editor',
 			'slug'     => 'post-thumbnail-editor',
-			'required' => true,
+			'required' => false,
 		),
 
 		array(
