@@ -165,8 +165,8 @@ class CCA_WPAdmin {
 		.login form { background: white; border: 3px solid #84ce6d;}
 		.wp-core-ui .button-primary {background-color: #294022; border-color: #294022;}
 		.wp-core-ui .button-primary.focus, .wp-core-ui .button-primary.hover, .wp-core-ui .button-primary:focus, .wp-core-ui .button-primary:hover {  background-color: #84ce6d;border-color: #84ce6d; }
-		.login #backtoblog a, .login #nav a { color: white; }
-		.login #backtoblog a:hover, .login #nav a:hover { color: #84ce6d; }
+		.login #backtoblog a, .login #nav a { color: #284021; }
+		.login #backtoblog a:hover, .login #nav a:hover { color: #518042; }
 		form#loginform p.galogin { background-image:url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/btn_google_signin.png) !important; 
 			cursor:pointer;
 			border:none;
