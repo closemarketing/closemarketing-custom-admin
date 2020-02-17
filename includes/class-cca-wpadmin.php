@@ -65,6 +65,16 @@ class CCA_WPAdmin {
 		// Cleans permalink stop words.
 		add_filter( 'name_save_pre', array( $this, 'seo_slugs' ), 0 );
 		add_action( 'wp_ajax_sample-permalink', array( $this, 'remove_stop_words_ajax' ), 0 );
+
+		// Deactive notifications to admin that password has change.
+		if ( ! function_exists( 'wp_password_change_notification' ) ) {
+			/**
+			 * Deactive Notifications to admin
+			 *
+			 * @return void
+			 */
+			function wp_password_change_notification() {}
+		}
 	}
 
 	/**

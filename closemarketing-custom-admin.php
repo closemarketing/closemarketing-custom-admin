@@ -3,7 +3,7 @@
  * Plugin Name: Closemarketing Custom Admin
  * Plugin URI: https://www.closemarketing.es
  * Description: Enhacements WordPress admin for Closemarketing.
- * Author: closemarketing
+ * Author: davidperez
  * Author URI: https://www.closemarketing.es/
  * Version: 1.4
  * Text Domain: closemarketing-custom-admin
@@ -30,6 +30,9 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	require_once dirname( __FILE__ ) . '/includes/woocommerce.php';
 }
 
+// Find Genesis Theme Data.
+$theme = wp_get_theme( 'genesis' );
+
 // Restrict activation to only when the Genesis Framework is activated.
 if ( basename( get_template_directory() ) === 'genesis' ) {
 	require_once dirname( __FILE__ ) . '/includes/genesis.php';
@@ -53,5 +56,4 @@ if ( class_exists( 'GFCommon' ) ) {
 		);
 	}
 }
-
 
