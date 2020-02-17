@@ -165,6 +165,11 @@ function cmk_register_required_plugins() {
 			'slug'     => 'gravity-forms-google-analytics-event-tracking',
 			'required' => false,
 		),
+		array(
+			'name'     => 'Max Mega Menu',
+			'slug'     => 'megamenu',
+			'required' => false,
+		),
 
 	);
 
