@@ -59,6 +59,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 = 1.5 =
 *   Updated list of plugins.
 *   Bug link admin.
+*   Deactive admin password.
 
 = 1.4 =
 *   Updated list of plugins.
