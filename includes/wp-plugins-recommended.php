@@ -51,6 +51,12 @@ function cmk_register_required_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'Customer Reviews for WooCommerce',
+			'slug'     => 'customer-reviews-woocommerce',
+			'required' => true,
+		),
+
 	);
 
 	//* Recommended for local
