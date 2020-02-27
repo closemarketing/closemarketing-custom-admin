@@ -218,12 +218,6 @@ function cmk_register_required_plugins() {
 			'slug'     => 'seo-by-rank-math',
 			'required' => false,
 		),
-
-		array(
-			'name'     => 'Genesis Translations',
-			'slug'     => 'genesis-translations',
-			'required' => true,
-		),
 		array(
 			'name'     => 'Atomic Blocks – Gutenberg Blocks Collection',
 			'slug'     => 'atomic-blocks',
