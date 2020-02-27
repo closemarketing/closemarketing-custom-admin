@@ -40,10 +40,11 @@ class CCA_WPAdmin {
 
 		// Add Access to Editor.
 		$role_object = get_role( 'editor' );
-
-		// add $cap capability to this role object.
-		$role_object->add_cap( 'edit_theme_options' );
-		$role_object->add_cap( 'gform_full_access' );
+		if ( ! is_null( $role_object ) ) {
+			// add $cap capability to this role object.
+			$role_object->add_cap( 'edit_theme_options' );
+			$role_object->add_cap( 'gform_full_access' );
+		}
 
 		// Thumbnails in columns admin.
 		if ( function_exists( 'add_theme_support' ) ) {
@@ -97,7 +98,9 @@ class CCA_WPAdmin {
 	 */
 	public function hide_menu_editor() {
 		$role_object = get_role( 'editor' );
-		$role_object->add_cap( 'edit_theme_options' );
+		if ( ! is_null( $role_object ) ) {
+			$role_object->add_cap( 'edit_theme_options' );
+		}
 
 		if ( current_user_can( 'editor' ) ) {
 			remove_submenu_page( 'themes.php', 'themes.php' ); // hide the theme selection submenu.
