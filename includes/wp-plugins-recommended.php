@@ -91,6 +91,18 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
+			'name'     => 'GDPR Cookie Compliance',
+			'slug'     => 'gdpr-cookie-compliance',
+			'required' => false,
+		),
+
+		array(
+			'name'     => 'Duplicate Post',
+			'slug'     => 'duplicate-post',
+			'required' => false,
+		),
+
+		array(
 			'name'     => 'Easy WP SMTP',
 			'slug'     => 'easy-wp-smtp',
 			'required' => false,
