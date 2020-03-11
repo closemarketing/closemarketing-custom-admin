@@ -180,17 +180,6 @@ class CCA_WPAdmin {
 		.wp-core-ui .button-primary.focus, .wp-core-ui .button-primary.hover, .wp-core-ui .button-primary:focus, .wp-core-ui .button-primary:hover {  background-color: #84ce6d;border-color: #84ce6d; }
 		.login #backtoblog a, .login #nav a { color: #284021; }
 		.login #backtoblog a:hover, .login #nav a:hover { color: #518042; }
-		form#loginform p.galogin { background-image:url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/btn_google_signin.png) !important; 
-			cursor:pointer;
-			border:none;
-			width:184px;
-			height:38px;
-			margin: 0 auto 15px;
-		}
-		form#loginform p.galogin:hover { background-image:url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/btn_google_signin-hover.png) !important;
-		}
-		.galogin a {display:block;
-			margin-left:-1000px;}
 		.galogin-powered,.galogin-or {display: none;}
 		</style>';
 	}
