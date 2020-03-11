@@ -3,7 +3,7 @@ Contributors: closemarketing, davidperez, sacrajaimez
 Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
-Tested up to: 5.3
+Tested up to: 5.4
 Stable tag: 1.5
 Version: 1.5
 
@@ -56,6 +56,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/closemarketing-custom-admin)
 
 == Changelog ==
+
 = 1.5 =
 *   Updated list of plugins.
 *   Bug link admin.

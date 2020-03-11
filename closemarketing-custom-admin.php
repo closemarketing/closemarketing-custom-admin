@@ -3,9 +3,9 @@
  * Plugin Name: Closemarketing Custom Admin
  * Plugin URI: https://www.closemarketing.es
  * Description: Enhacements WordPress admin for Closemarketing.
- * Author: davidperez
+ * Author: closemarketing
  * Author URI: https://www.closemarketing.es/
- * Version: 1.4
+ * Version: 1.5
  * Text Domain: closemarketing-custom-admin
  * Domain Path: /languages
  * License: GNU General Public License version 3.0

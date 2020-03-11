@@ -51,6 +51,12 @@ function cmk_register_required_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'Customer Reviews for WooCommerce',
+			'slug'     => 'customer-reviews-woocommerce',
+			'required' => true,
+		),
+
 	);
 
 	//* Recommended for local
@@ -81,6 +87,18 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Cookie Notice',
 			'slug'     => 'cookie-notice',
+			'required' => false,
+		),
+
+		array(
+			'name'     => 'GDPR Cookie Compliance',
+			'slug'     => 'gdpr-cookie-compliance',
+			'required' => false,
+		),
+
+		array(
+			'name'     => 'Duplicate Post',
+			'slug'     => 'duplicate-post',
 			'required' => false,
 		),
 
@@ -211,12 +229,6 @@ function cmk_register_required_plugins() {
 			'name'     => 'WordPress SEO Plugin – Rank Math',
 			'slug'     => 'seo-by-rank-math',
 			'required' => false,
-		),
-
-		array(
-			'name'     => 'Genesis Translations',
-			'slug'     => 'genesis-translations',
-			'required' => true,
 		),
 		array(
 			'name'     => 'Atomic Blocks – Gutenberg Blocks Collection',
