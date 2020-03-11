@@ -5,7 +5,7 @@
  * Description: Enhacements WordPress admin for Closemarketing.
  * Author: closemarketing
  * Author URI: https://www.closemarketing.es/
- * Version: 1.5
+ * Version: 1.6
  * Text Domain: closemarketing-custom-admin
  * Domain Path: /languages
  * License: GNU General Public License version 3.0

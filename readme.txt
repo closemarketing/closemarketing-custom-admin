@@ -4,8 +4,8 @@ Tags: custom-admin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 4.0
 Tested up to: 5.4
-Stable tag: 1.5
-Version: 1.5
+Stable tag: 1.6
+Version: 1.6
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -57,9 +57,12 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
-= 1.5 =
+= 1.6 =
 *   Updated list of plugins.
 *   Bug link admin.
+
+= 1.5 =
+*   Updated list of plugins.
 *   Deactive admin password.
 
 = 1.4 =
