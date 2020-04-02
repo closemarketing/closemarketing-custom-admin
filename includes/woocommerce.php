@@ -62,3 +62,42 @@ if ( function_exists( 'child_manage_woocommerce_styles' ) ) {
 
 	}
 }
+
+if ( function_exists( 'add_terms_and_conditions_to_registration' ) ) {
+	add_action( 'woocommerce_register_form', 'add_terms_and_conditions_to_registration', 20 );
+	/**
+	 * Add terms and conditions in registration page
+	 *
+	 * @return void
+	 */
+	function add_terms_and_conditions_to_registration() {
+
+		if ( wc_get_page_id( 'terms' ) > 0 && is_account_page() ) {
+			?>
+			<p class="form-row terms wc-terms-and-conditions">
+				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+				<input type="checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="terms" <?php checked( apply_filters( 'woocommerce_terms_is_checked_default', isset( $_POST['terms'] ) ), true ); ?> id="terms" /> <span><?php printf( __( 'He leído y acepto <a href="%s" target="_blank" class="woocommerce-terms-and-conditions-link">los términos y condiciones de venta</a>', 'woocommerce' ), esc_url( wc_get_page_permalink( 'terms' ) ) ); ?></span> <span class="required">*</span>
+				</label>
+				<input type="hidden" name="terms-field" value="1" />
+			</p>
+			<?php
+		}
+	}
+
+	add_action( 'woocommerce_register_post', 'terms_and_conditions_validation', 20, 3 );
+	/**
+	 * Validate required term and conditions check box
+	 *
+	 * @param string $username Username.
+	 * @param string $email Email.
+	 * @param object $validation_errors Object of validation errors.
+	 * @return object $validation_errors
+	 */
+	function terms_and_conditions_validation( $username, $email, $validation_errors ) {
+		if ( ! isset( $_POST['terms'] ) ) {
+			$validation_errors->add( 'terms_error', __( '¡No has marcado los términos y condiciones!', 'woocommerce' ) );
+		}
+
+		return $validation_errors;
+	}
+}
