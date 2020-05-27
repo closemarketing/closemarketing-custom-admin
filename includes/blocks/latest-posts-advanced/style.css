@@ -1,0 +1,149 @@
+/* MetaBox Block Style
+--------------------------------------------- */
+
+.ultimas-entradas-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+	margin-bottom: 4rem;
+	color: white;
+}
+
+.ultimas-entradas .widget-title {
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      text-align: center;
+      color: white;
+      margin-top: 2rem;
+}
+
+.ultimas-entradas .widget-excerpt {
+      line-height: normal;
+      text-align: left;
+      letter-spacing: 0.01em;
+      color: white;
+}
+
+.wrapper-imagen {
+	position: relative;
+}
+
+.fecha-post {
+	position: absolute;
+	bottom: 10px;
+	z-index: 99;
+	background-color: rgba(157, 157, 157, 0.7);
+	padding: 1rem 2rem;
+	color: white;
+}
+
+.item-post img {
+	position: relative;
+	width: 100%;
+}
+
+.wrapper-imagen h3 {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	text-align: center;
+	z-index: 999;
+	margin-top: 0 !important;
+}
+
+.wrapper-imagen::before {
+	content: '';
+	display: block;
+	position: absolute;
+	z-index: 99;
+	background-color: black;
+	opacity: 0.4;
+	width: 100%;
+	height: 100%;
+}
+
+.item-post:hover h3 {
+	top: 10%;
+	transition: all 0.5s ease;
+}
+
+.item-post .widget-excerpt {
+	position: absolute;
+	top: 30%;
+	padding: 0 10%;
+	z-index: 999;
+	opacity: 0;
+}
+
+.item-post .ver-mas {
+	position: absolute;
+	top: 60%;
+	left: 40%;
+	opacity: 0;
+	z-index: 999;
+}
+
+.item-post:hover .widget-excerpt {
+	opacity: 1;
+	transition: all 0.5s ease;
+}
+
+.item-post:hover .fecha-post {
+	background-color: rgba(157, 157, 157, 1);	
+}
+
+.item-post:hover .wrapper-imagen::before {
+	background-color: #9d9d9d;
+	opacity: 1;
+	transition: all 0.5s ease;
+}
+
+.item-post:hover .fecha-post {
+	opacity: 0;
+	transition: all 0.5s ease;
+}
+
+.item-post:hover .ver-mas {
+	opacity: 1;
+	transition: all 0.5s ease;
+}
+
+/* Tablet Horizontal */
+@media only screen and (max-width: 1024px) {
+	.wrapper-imagen h3{
+		top: 10%;
+	}
+
+	.item-post .widget-excerpt {
+		opacity: 1;
+		max-height: 4rem;
+		overflow: hidden;
+	}
+	
+	.item-post .fecha-post {
+		background-color: rgba(157, 157, 157, 1);	
+	}
+	
+	.item-post .fecha-post {
+		opacity: 0;
+	}
+	
+	.item-post .ver-mas {
+		opacity: 1;
+		left: 35%;
+	}	
+}
+
+/* Tablet vertical */
+@media only screen and (max-width: 860px) {
+	.ultimas-entradas-wrapper {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+/* Phablet */
+@media only screen and (max-width: 414px) and  (min-width: 280px) {
+	.ultimas-entradas-wrapper {
+		grid-template-columns: 1fr;
+	}
+}

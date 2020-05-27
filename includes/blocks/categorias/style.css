@@ -1,0 +1,94 @@
+/* MetaBox Block Style
+--------------------------------------------- */
+
+.wpblock-categorias {
+
+}
+
+.grid-categorias {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	text-align: center;
+	grid-gap: 2rem;
+	align-items: center;
+}
+
+.grid-categorias .item {
+	position: relative;
+	*zoom: 1;
+}
+
+.grid-categorias .boxes {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	margin: 1.5%;
+}
+
+.entry-content .grid-categorias .item a {
+	text-decoration: none;
+}
+
+.entry-content .grid-categorias .item img {
+	width: 100%;
+}
+
+.grid-categorias .item .title {
+	position: absolute;
+	z-index: 99;
+	bottom: 0;
+	left: 0;
+	width: 100%;;
+}
+
+.da-image {
+	min-height: 100%;
+	width: 100%;
+}
+.overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0%;
+	left: -100%;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	vertical-align: middle;
+}
+
+.overlay h3 {
+	position: absolute;
+	color: white;
+	width: 100%;
+	text-align: center;	
+}
+
+/* Phablet */
+@media only screen and (max-width: 414px) and  (min-width: 280px) {
+	.grid-categorias {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.boxes-mob {
+		display: block;
+		position: relative;
+	}
+
+	.boxes-mob .overlay {
+		position: relative;
+		left: 0;
+		min-height: 6rem;
+		margin-top: -0.7rem;
+		background: no-repeat;
+	  
+	}
+
+	.overlay h3 {
+		font-size: 1.2rem;
+		color: black;
+	}
+}
