@@ -28,7 +28,6 @@ class CCA_WPAdmin {
 
 		// Different colour of status entry.
 		add_filter( 'user_contactmethods', array( $this, 'remove_profile_fields' ), 10, 1 );
-		add_action( 'login_head', array( $this, 'custom_login_logo' ) );
 		add_action( 'wp_head', array( $this, 'change_bar_color' ) );
 		add_action( 'admin_head', array( $this, 'change_bar_color' ) );
 		add_action( '_admin_menu', array( $this, 'remove_editor_menu' ), 1 );
@@ -37,6 +36,11 @@ class CCA_WPAdmin {
 		add_filter( 'the_excerpt_rss', array( $this, 'rss_post_thumbnail' ) );
 		add_filter( 'the_content_feed', array( $this, 'rss_post_thumbnail' ) );
 		add_action( 'admin_footer', array( $this, 'posts_status_color' ) );
+
+		$deactive_login = get_option( 'ccaa_deactive_custom_login' );
+		if ( 'on' !== $deactive_login ) {
+			add_action( 'login_head', array( $this, 'custom_login_logo' ) );
+		}
 
 		// Add Access to Editor.
 		$role_object = get_role( 'editor' );
@@ -57,6 +61,9 @@ class CCA_WPAdmin {
 
 		// Add custom post types count action to WP Dashboard.
 		add_action( 'dashboard_glance_items', array( $this, 'custom_posttype_glance_items' ) );
+
+		// Options
+		add_action( 'admin_init', array( $this, 'options_settings' ) );
 
 		// Changes in Attachments.
 		add_action( 'admin_init', array( $this, 'imagelink_setup' ), 10 );
@@ -380,6 +387,61 @@ class CCA_WPAdmin {
 		// Return them.
 		return $glances;
 	}
+
+	/**
+	 * Opciones generales
+	 *
+	 * @return void
+	 */
+	public function options_settings() {
+		add_settings_section(
+			'cmk_options', // Section ID.
+			__( 'Advanced settings', 'closemarketing-custom-admin'), // Section Title.
+			array( $this, 'my_section_options_callback' ), // Callback.
+			'general' // What Page?.
+		);
+
+		// Option Catalogo.
+		add_settings_field(
+			'ccaa_deactive_custom_login', // Option ID.
+			__( 'Deactive Closemarketing custom login', 'closemarketing-custom-admin' ), // Label.
+			array( $this, 'options_callback' ), // !important - This is where the args go!.
+			'general', // Page it will be displayed (General Settings).
+			'cmk_options', // Name of our section.
+			array(
+				'ccaa_deactive_custom_login', // Should match Option ID.
+			)
+		);
+
+		register_setting( 'general', 'ccaa_deactive_custom_login', 'esc_attr' );
+	}
+
+	/**
+	 * Descripción de la sección
+	 *
+	 * @return void
+	 */
+	public function my_section_options_callback() {
+		echo '<p>' . __( 'Options from custom administration.', 'closemarketing-custom-admin' ) . '</p>';
+	}
+
+	/**
+	 * Input options for the field
+	 *
+	 * @param array $args Arguments of field.
+	 * @return void
+	 */
+	public function options_callback( $args ) {  // Textbox Callback.
+		$option_slug = $args[0];
+		$option_maintenance = get_option( $option_slug );
+
+		echo '<input type="checkbox" class="regular-text" name="' . esc_html( $option_slug ) . '" id="' . esc_html( $option_slug ). '"';
+		if ( 'on' === $option_maintenance ) {
+			echo ' checked';
+		}
+		echo '>';
+	}
+
 
 	/**
 	 * # Attachments

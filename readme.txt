@@ -58,6 +58,8 @@ WordPress installation and then activate the Plugin from Plugins page.
 == Changelog ==
 = 1.7 =
 *   Orange bar for beta versions.
+*   Updated list of plugins.
+*   Option to deactive login page Closemarketing.
 
 = 1.6 =
 *   Updated list of plugins.
