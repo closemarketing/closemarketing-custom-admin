@@ -1,11 +1,11 @@
 === Closemarketing Custom Admin ===
 Contributors: closemarketing, davidperez, sacrajaimez
 Tags: custom-admin
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
+Donate link: https://www.closemarketing.es/go/donate/
 Requires at least: 4.0
-Tested up to: 5.4
-Stable tag: 1.6
-Version: 1.6
+Tested up to: 5.6
+Stable tag: 1.7
+Version: 1.7
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
