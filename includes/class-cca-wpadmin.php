@@ -203,8 +203,7 @@ class CCA_WPAdmin {
 			// live.
 			$color = '#84ce6d';
 		}
-		echo '
-			<style>
+		echo '<style>
 			#wpadminbar{ background: ' . esc_html( $color ) . ' !important; }
 			#adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head, #adminmenu .wp-menu-arrow, #adminmenu .wp-menu-arrow div, #adminmenu li.current a.menu-top, #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu, .folded #adminmenu li.current.menu-top, .folded #adminmenu li.wp-has-current-submenu {
 				background: ' . esc_html( $color ) . ' !important;
@@ -212,7 +211,7 @@ class CCA_WPAdmin {
 			#adminmenu .wp-submenu a:focus, #adminmenu .wp-submenu a:hover, #adminmenu a:hover, #adminmenu li.menu-top>a:focus,#adminmenu li.menu-top:hover, #adminmenu li.opensub>a.menu-top, #adminmenu li>a.menu-top:focus, #adminmenu li a:focus div.wp-menu-image:before, #adminmenu li.opensub div.wp-menu-image:before, #adminmenu li:hover div.wp-menu-image:before {
 				color: ' . esc_html( $color ) . ' !important;
 			}
-			.wc-install.ultp-pro-notice {	display: none; }
+			.wc-install.ultp-pro-notice, .license-warning.notice.notice-error.is-dismissible {	display: none; }
 			</style>';
 	}
 
