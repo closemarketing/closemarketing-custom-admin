@@ -115,18 +115,6 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Redirection',
-			'slug'     => 'redirection',
-			'required' => true,
-		),
-
-		array(
-			'name'     => 'Genesis Simple Share',
-			'slug'     => 'genesis-simple-share',
-			'required' => false,
-		),
-
-		array(
 			'name'     => 'Post Thumbnail Editor',
 			'slug'     => 'post-thumbnail-editor',
 			'required' => false,
@@ -231,14 +219,24 @@ function cmk_register_required_plugins() {
 			'required' => false,
 		),
 		array(
-			'name'     => 'Atomic Blocks – Gutenberg Blocks Collection',
-			'slug'     => 'atomic-blocks',
+			'name'     => 'Gutentor',
+			'slug'     => 'gutentor',
 			'required' => false,
 		),
 		array(
-			'name'     => 'WP Synchro – Migrate WordPress database and files',
-			'slug'     => 'wpsynchro',
+			'name'     => 'Generate Blocks',
+			'slug'     => 'generateblocks',
 			'required' => false,
+		),
+		array(
+			'name'   => 'WP Sync DB',
+			'slug'   => 'wp-sync-db',
+			'source' => 'https://github.com/wp-sync-db/wp-sync-db/archive/master.zip',
+		),
+		array(
+			'name'   => 'WP Sync DB Files',
+			'slug'   => 'wp-sync-db-media-files',
+			'source' => 'https://github.com/wp-sync-db/wp-sync-db-media-files/archive/master.zip',
 		),
 	);
 
