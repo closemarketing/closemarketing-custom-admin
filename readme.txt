@@ -56,6 +56,8 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/closemarketing-custom-admin)
 
 == Changelog ==
+= 1.7 =
+*   Orange bar for beta versions.
 
 = 1.6 =
 *   Updated list of plugins.
