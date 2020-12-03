@@ -197,9 +197,11 @@ class CCA_WPAdmin {
 		if ( 'localhost' == $server_host || 'loc' === $tld || 'local' === $tld ) {
 			// local.
 			$color = 'red';
+		} elseif ( 0 === strpos( $server_host, 'beta' ) ) {
+			$color = 'orange';
 		} else {
 			// live.
-			$color = '#84ce6d';	
+			$color = '#84ce6d';
 		}
 		echo '
 			<style>
@@ -210,6 +212,7 @@ class CCA_WPAdmin {
 			#adminmenu .wp-submenu a:focus, #adminmenu .wp-submenu a:hover, #adminmenu a:hover, #adminmenu li.menu-top>a:focus,#adminmenu li.menu-top:hover, #adminmenu li.opensub>a.menu-top, #adminmenu li>a.menu-top:focus, #adminmenu li a:focus div.wp-menu-image:before, #adminmenu li.opensub div.wp-menu-image:before, #adminmenu li:hover div.wp-menu-image:before {
 				color: ' . esc_html( $color ) . ' !important;
 			}
+			.wc-install.ultp-pro-notice {	display: none; }
 			</style>';
 	}
 
