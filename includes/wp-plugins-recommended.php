@@ -22,12 +22,6 @@ function cmk_register_required_plugins() {
 	$plugins_woo = array(
 
 		array(
-			'name'     => 'Genesis Connect for WooCommerce',
-			'slug'     => 'genesis-connect-woocommerce',
-			'required' => false,
-		),
-
-		array(
 			'name'     => 'SMNTCS WooCommerce Quantity Buttons',
 			'slug'     => 'smntcs-woocommerce-quantity-buttons',
 			'required' => false,
@@ -54,6 +48,12 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Customer Reviews for WooCommerce',
 			'slug'     => 'customer-reviews-woocommerce',
+			'required' => true,
+		),
+
+		array(
+			'name'     => 'Spanish Enhacements for WooCommerce',
+			'slug'     => 'woocommerce-es',
 			'required' => true,
 		),
 
@@ -85,9 +85,9 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Cookie Notice',
-			'slug'     => 'cookie-notice',
-			'required' => false,
+			'name'     => 'Limit Login Attempts Reloaded',
+			'slug'     => 'limit-login-attempts-reloaded',
+			'required' => true,
 		),
 
 		array(
@@ -115,8 +115,8 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Post Thumbnail Editor',
-			'slug'     => 'post-thumbnail-editor',
+			'name'     => 'Crop-Thumbnails',
+			'slug'     => 'crop-thumbnails',
 			'required' => false,
 		),
 
@@ -129,12 +129,6 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Broken Link Checker',
 			'slug'     => 'broken-link-checker',
-			'required' => true,
-		),
-
-		array(
-			'name'     => 'Bot Block – Stop Spam Referrals in Google Analytics',
-			'slug'     => 'bot-block-stop-spam-google-analytics-referrals',
 			'required' => true,
 		),
 
@@ -157,8 +151,8 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Smush Image Compression and Optimization',
-			'slug'     => 'wp-smushit',
+			'name'     => 'EWWW Image Optimizer',
+			'slug'     => 'ewww-image-optimizer',
 			'required' => true,
 		),
 		array(
@@ -171,11 +165,6 @@ function cmk_register_required_plugins() {
 			'slug'     => 'gravity-forms-google-analytics-event-tracking',
 			'required' => false,
 		),
-		array(
-			'name'     => 'Max Mega Menu',
-			'slug'     => 'megamenu',
-			'required' => false,
-		),
 
 	);
 
@@ -185,12 +174,6 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'Meta box',
 			'slug'     => 'meta-box',
-			'required' => true,
-		),
-
-		array(
-			'name'     => 'Widgets for Genesis',
-			'slug'     => 'widgets-so-genesis',
 			'required' => true,
 		),
 
@@ -216,11 +199,6 @@ function cmk_register_required_plugins() {
 		array(
 			'name'     => 'WordPress SEO Plugin – Rank Math',
 			'slug'     => 'seo-by-rank-math',
-			'required' => false,
-		),
-		array(
-			'name'     => 'Gutentor',
-			'slug'     => 'gutentor',
 			'required' => false,
 		),
 		array(

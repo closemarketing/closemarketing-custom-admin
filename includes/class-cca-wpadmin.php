@@ -36,6 +36,7 @@ class CCA_WPAdmin {
 		add_filter( 'the_excerpt_rss', array( $this, 'rss_post_thumbnail' ) );
 		add_filter( 'the_content_feed', array( $this, 'rss_post_thumbnail' ) );
 		add_action( 'admin_footer', array( $this, 'posts_status_color' ) );
+		add_action( 'after_setup_theme', array( $this, 'remove_posts_formats' ), 100 );
 
 		$deactive_login = get_option( 'ccaa_deactive_custom_login' );
 		if ( 'on' !== $deactive_login ) {
@@ -601,6 +602,15 @@ class CCA_WPAdmin {
 	   	return array (
 		"alors", "au", "aucuns", "aussi", "autre", "avant", "avec", "avoir", "bon", "car", "ce", "cela", "ces", "ceux", "chaque", "ci", "comme", "comment", "dans", "des", "du", "dedans", "dehors", "depuis", "deux", "devrait", "doit", "donc", "dos", "droite", "début", "elle", "elles", "en", "encore", "essai", "est", "et", "eu", "fait", "faites", "fois", "font", "force", "haut", "hors", "ici", "il", "ils", "je juste", "la", "le", "les", "leur", "là", "ma", "maintenant", "mais", "mes", "mine", "moins", "mon", "mot", "même", "ni", "nommés", "notre", "nous", "nouveaux", "ou", "où", "par", "parce", "parole", "pas", "personnes", "peut", "peu", "pièce", "plupart", "pour", "pourquoi", "quand", "que", "quel", "quelle", "quelles", "quels", "qui", "sa", "sans", "ses", "seulement", "si", "sien", "son", "sont", "sous", "soyez sujet", "sur", "ta", "tandis", "tellement", "tels", "tes", "ton", "tous", "tout", "trop", "très", "tu", "valeur", "voie", "voient", "vont", "votre", "vous", "vu", "ça", "étaient", "état", "étions", "été", "être");
 	} // Stop word list from: http://www.ranks.nl/stopwords/french
+	
+	/**
+	 * Remove Posts Formats
+	 *
+	 * @return void
+	 */
+	function remove_posts_formats() {
+   		remove_theme_support( 'post-formats' );
+	}
 
 }
 

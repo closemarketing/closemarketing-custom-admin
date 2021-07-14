@@ -3,9 +3,9 @@ Contributors: closemarketing, davidperez, sacrajaimez
 Tags: custom-admin
 Donate link: https://www.closemarketing.es/go/donate/
 Requires at least: 4.0
-Tested up to: 5.6
-Stable tag: 1.7
-Version: 1.7
+Tested up to: 5.8
+Stable tag: 1.8
+Version: 1.8
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -56,6 +56,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/closemarketing-custom-admin)
 
 == Changelog ==
+= 1.8 =
+*   Updated list of plugins.
+*   Removed optimization of Gravity CSS.
+
 = 1.7 =
 *   Orange bar for beta versions.
 *   Updated list of plugins.
