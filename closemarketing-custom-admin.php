@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Closemarketing Custom Admin
- * Plugin URI: https://www.closemarketing.es
+ * Plugin URI: https://close.marketing
  * Description: Enhacements WordPress admin for Closemarketing.
  * Author: closemarketing
- * Author URI: https://www.closemarketing.es/
- * Version: 1.8
+ * Author URI: https://close.marketing/
+ * Version: 1.9
  * Text Domain: closemarketing-custom-admin
  * Domain Path: /languages
  * License: GNU General Public License version 3.0
