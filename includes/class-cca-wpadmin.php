@@ -180,8 +180,15 @@ class CCA_WPAdmin {
 	 */
 	public function custom_login_logo() {
 		echo '<style type="text/css">
-		h1 a { background-image:url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/logo-login.png) !important; }
-		body.login {background: white url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/login-background.jpg) bottom left no-repeat; }
+		h1 a { background-image:url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/logo-closemarketing.svg) !important; }
+		body.login {background: #99DC8F url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/fondo-cortina.png);
+			background-repeat: no-repeat;
+		}
+		.login h1 a {
+			background-size: 211px;
+			height: 37px;
+			width: 211px;
+		}
 		.login label {color:#294022;}
 		.login form { background: white; border: 3px solid #84ce6d;}
 		.wp-core-ui .button-primary {background-color: #294022; border-color: #294022;}
@@ -189,6 +196,11 @@ class CCA_WPAdmin {
 		.login #backtoblog a, .login #nav a { color: #284021; }
 		.login #backtoblog a:hover, .login #nav a:hover { color: #518042; }
 		.galogin-powered,.galogin-or {display: none;}
+		#loginform {
+			border: 4px solid #84CE6D;
+			box-shadow: 0px 0px 40px rgba(34, 53, 71, 0.3);
+			border-radius: 20px;
+		}
 		</style>';
 	}
 
