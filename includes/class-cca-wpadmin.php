@@ -181,8 +181,9 @@ class CCA_WPAdmin {
 	public function custom_login_logo() {
 		echo '<style type="text/css">
 		h1 a { background-image:url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/logo-closemarketing.svg) !important; }
-		body.login {background: #99DC8F url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/fondo-cortina.png);
+		body.login {background: #99DC8F url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/admin-cortina-fondo.png);
 			background-repeat: no-repeat;
+			background-position: left;
 		}
 		.login h1 a {
 			background-size: 211px;
