@@ -21,6 +21,9 @@ class CCA_WPAdmin {
 		// Customizes Admin.
 		add_action( 'admin_head', array( $this, 'hide_menu_editor' ) );
 
+		// Disables XML RPC for security.
+		add_filter( 'xmlrpc_enabled', '__return_false' );
+
 		// Disable default dashboard widgets.
 		add_action( 'wp_dashboard_setup', array( $this, 'add_custom_dashboard_widget' ) );
 		add_action( 'admin_init', array( $this, 'disable_default_dashboard_widgets' ) );
