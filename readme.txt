@@ -1,7 +1,7 @@
 === Closemarketing Custom Admin ===
 Contributors: closemarketing, davidperez, sacrajaimez, manolomunoz
 Tags: custom-admin
-Donate link: https://www.closemarketing.es/go/donate/
+Donate link: https://close.marketing/go/donate/
 Requires at least: 4.0
 Tested up to: 5.9
 Stable tag: 1.10
@@ -44,7 +44,7 @@ Others Plugins:
 - [Gravity Forms in Spanish](https://wordpress.org/plugins/gravityforms-es/)
 - [Gravity Forms Mailerlite](https://wordpress.org/plugins/connector-gravityforms-mailerlite/)
 
-Made by [Closemarketing](https://www.closemarketing.net/)
+Made by [Close·Technology](https://close.technology/)
 
 == Installation ==
 
@@ -57,7 +57,8 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 = 1.10 =
-*   Disables XML-RPC
+*   Disables XML-RPC.
+*   Updated list of plugins.
 
 = 1.9 =
 *   Updated login screen.
@@ -152,4 +153,4 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Links ==
 
-*   [Closemarketing](https://www.closemarketing.es/)
+*   [Closemarketing](https://close.marketing/)
