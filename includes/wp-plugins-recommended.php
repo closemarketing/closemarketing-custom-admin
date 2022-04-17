@@ -63,8 +63,8 @@ function cmk_register_required_plugins() {
 	$plugins_local = array(
 
 		array(
-			'name'     => 'Simply Show Hooks',
-			'slug'     => 'simply-show-hooks',
+			'name'     => 'Show Hooks',
+			'slug'     => 'show-hooks',
 			'required' => true,
 		),
 
@@ -78,9 +78,10 @@ function cmk_register_required_plugins() {
 
 	//* Recommended for live
 	$plugins_live = array(
+
 		array(
-			'name'     => 'Gutenberg',
-			'slug'     => 'gutenberg',
+			'name'     => 'Two Factor',
+			'slug'     => 'two-factor',
 			'required' => true,
 		),
 
@@ -133,6 +134,12 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
+			'name'     => 'BBQ Firewall',
+			'slug'     => 'block-bad-queries',
+			'required' => true,
+		),
+
+		array(
 			'name'     => 'Stop Spammers',
 			'slug'     => 'stop-spammer-registrations-plugin',
 			'required' => true,
@@ -178,12 +185,6 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Gravity Forms Spanish',
-			'slug'     => 'gravityforms-es',
-			'required' => false,
-		),
-
-		array(
 			'name'     => 'Regenerate Thumbnails',
 			'slug'     => 'regenerate-thumbnails',
 			'required' => false,
@@ -193,28 +194,18 @@ function cmk_register_required_plugins() {
 			'name'        => 'WordPress SEO by Yoast',
 			'slug'        => 'wordpress-seo',
 			'is_callable' => 'wpseo_init',
-			'required'    => true,
+			'required'    => false,
 		),
 
 		array(
 			'name'     => 'WordPress SEO Plugin – Rank Math',
 			'slug'     => 'seo-by-rank-math',
-			'required' => false,
+			'required' => true,
 		),
 		array(
 			'name'     => 'Generate Blocks',
 			'slug'     => 'generateblocks',
 			'required' => false,
-		),
-		array(
-			'name'   => 'WP Sync DB',
-			'slug'   => 'wp-sync-db',
-			'source' => 'https://github.com/wp-sync-db/wp-sync-db/archive/master.zip',
-		),
-		array(
-			'name'   => 'WP Sync DB Files',
-			'slug'   => 'wp-sync-db-media-files',
-			'source' => 'https://github.com/wp-sync-db/wp-sync-db-media-files/archive/master.zip',
 		),
 	);
 
