@@ -278,32 +278,6 @@ class CCA_WPAdmin {
 			$wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'],
 			$wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']
 		);
-		// add a custom dashboard widget.
-		wp_add_dashboard_widget(
-			'dashboard_custom_feed',
-			'Noticias de Closemarketing',
-			array( $this, 'dashboard_custom_feed_output' )
-		); // add new RSS feed output.
-	}
-
-	/**
-	 * Feed from closemarketing
-	 *
-	 * @return void
-	 */
-	public function dashboard_custom_feed_output() {
-		echo '<div class="rss-widget">';
-		wp_widget_rss_output(
-			array(
-				'url'          => 'http://www.closemarketing.es/feed/',
-				'title'        => __( 'Closemarketing News', 'closemarketing-custom-admin' ),
-				'items'        => 2,
-				'show_summary' => 1,
-				'show_author'  => 0,
-				'show_date'    => 1,
-			)
-		);
-		echo '</div>';
 	}
 
 	/**
