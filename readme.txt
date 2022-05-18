@@ -3,9 +3,9 @@ Contributors: closemarketing, davidperez, sacrajaimez, manolomunoz
 Tags: custom-admin
 Donate link: https://close.marketing/go/donate/
 Requires at least: 4.0
-Tested up to: 5.9
-Stable tag: 1.10
-Version: 1.10
+Tested up to: 6.0
+Stable tag: 1.11
+Version: 1.11
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -56,6 +56,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/closemarketing-custom-admin)
 
 == Changelog ==
+= 1.11 =
+*   Disables Feed.
+
 = 1.10 =
 *   Disables XML-RPC.
 *   Updated list of plugins.
