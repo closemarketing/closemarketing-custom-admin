@@ -30,6 +30,10 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	require_once dirname( __FILE__ ) . '/includes/woocommerce.php';
 }
 
+if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+	require_once dirname( __FILE__ ) . '/includes/woocommerce.php';
+}
+
 // Find Genesis Theme Data.
 $theme = wp_get_theme( 'genesis' );
 
@@ -37,4 +41,5 @@ $theme = wp_get_theme( 'genesis' );
 if ( basename( get_template_directory() ) === 'genesis' ) {
 	require_once dirname( __FILE__ ) . '/includes/genesis.php';
 }
+
 
