@@ -1,11 +1,11 @@
 === Closemarketing Custom Admin ===
-Contributors: closemarketing, davidperez, sacrajaimez, manolomunoz
+Contributors: closemarketing, davidperez, sacrajaimez, alexbreagarcia
 Tags: custom-admin
 Donate link: https://close.marketing/go/donate/
 Requires at least: 4.0
-Tested up to: 6.0
-Stable tag: 1.11
-Version: 1.11
+Tested up to: 6.3
+Stable tag: 1.12.0
+Version: 1.12.0
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
@@ -20,9 +20,14 @@ Makes some changes in WordPress admin for better customization in Closemarketing
 - Custom admin colour bar (diferent in local).
 - Sanitize filenames for better support in Safari.
 
-In [Genesis Framework](https://www.closemarketing.es/likes/genesis/)
+Optimizations:
+- Remove Emoji in public.
+- Remove Dashicons in public.
+- Remove WordPress Generator in public.
+- Remove Feed Links and Feed Comments in body.
+
+In Genesis Framework:
 - Remove WordPress Generator, Feed Links and Feed Comments, Emoji and Dashicons.
-- Enqueue Min Gravity Forms style.
 - Base CSS.
 - Loads Favicon.
 - Show excerpts instead of content in archive pages.
@@ -56,6 +61,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/closemarketing-custom-admin)
 
 == Changelog ==
+= 1.12.0 =
+*   Updated login background.
+*   Move optimization functions for all websites not only Genesis.
+
 = 1.11 =
 *   Disables Feed.
 
