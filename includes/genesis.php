@@ -10,8 +10,6 @@
  * @link    https://www.closemarketing.es/
  */
 
-// * Remove version WordPress.
-remove_action( 'wp_head', 'wp_generator' );
 
 add_action( 'admin_menu', 'cmk_remove_genesis_page_scripts_box', 80 );
 /**
@@ -24,32 +22,6 @@ function cmk_remove_genesis_page_scripts_box() {
 		remove_meta_box( 'genesis_inpost_scripts_box', $post_type, 'normal' ); 
 	}
 }
-
-if ( function_exists( 'cmk_enqueue_scripts_styles' ) ) {
-	add_action( 'wp_enqueue_scripts', 'cmk_enqueue_scripts_styles' );
-	/**
-	 * Enqueue Scripts and Styles
-	 *
-	 * @return void
-	 */
-	function cmk_enqueue_scripts_styles() {
-		// * Add Gravityforms CSS
-		if ( class_exists( 'GFCommon' ) ) {
-			wp_enqueue_style(
-				'gforms_css',
-				plugins_url(
-					'/css/gravityforms.min.css',
-					__FILE__
-				),
-				null,
-				GFCommon::$version
-			);
-		}
-	}
-}
-
-// ** Add label visibility options
-add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
 
 /**
  * Remove Genesis child theme style sheet
@@ -121,26 +93,8 @@ if ( function_exists( 'sdt_remove_ver_css_js' ) ) {
 	}
 }
 
-// *Remove Feed links
-remove_action( 'wp_head', 'feed_links', 2 ); // removes feed links.
-remove_action( 'wp_head', 'feed_links_extra', 3 ); // removes comments feed.
-
-// * Remove Emoji
-remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-remove_action( 'wp_print_styles', 'print_emoji_styles' );
-
 // * Remove the edit link
 add_filter( 'genesis_edit_post_link', '__return_false' );
-
-if ( function_exists( 'deregister_dashicons' ) ) {
-	// Deregister los dashicons si no se muestra la barra de admin
-	add_action( 'wp_print_styles', 'deregister_dashicons', 100 );
-	function deregister_dashicons() {
-		if ( ! is_admin_bar_showing() ) {
-			wp_deregister_style( 'dashicons' );
-		}
-	}
-}
 
 if ( function_exists( 'cmk_remove_default_images' ) ) {
 	// * deregister medium large file
@@ -150,30 +104,6 @@ if ( function_exists( 'cmk_remove_default_images' ) ) {
 		unset( $sizes['medium_large'] ); // 768px
 		return $sizes;
 	}
-}
-
-if ( function_exists( 'cmk_custom_login_redirect' ) ) {
-	// ---------------------------------
-	// Redirect for a user role
-	// ---------------------------------
-	function cmk_custom_login_redirect( $redirect_to, $request, $user ) {
-		global $user;
-		if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-
-			if ( in_array( 'administrator', $user->roles ) ) {
-				return home_url( '/wp-admin/plugins.php' );
-
-			} elseif ( in_array( 'editor', $user->roles ) ) {
-				return home_url( '/wp-admin/edit.php' );
-
-			} else {
-				return home_url();
-			}
-		} else {
-			return $redirect_to;
-		}
-	}
-	add_filter( 'login_redirect', 'cmk_custom_login_redirect', 10, 3 );
 }
 
 if ( function_exists( 'cmk_term_excerpt' ) ) {

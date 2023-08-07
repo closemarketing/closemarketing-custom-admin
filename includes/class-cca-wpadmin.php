@@ -24,6 +24,9 @@ class CCA_WPAdmin {
 		// Disables XML RPC for security.
 		add_filter( 'xmlrpc_enabled', '__return_false' );
 
+		// Add label visibility options in GravityForms.
+		add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+
 		// Disable default dashboard widgets.
 		add_action( 'wp_dashboard_setup', array( $this, 'add_custom_dashboard_widget' ) );
 		add_action( 'admin_init', array( $this, 'disable_default_dashboard_widgets' ) );
@@ -66,7 +69,7 @@ class CCA_WPAdmin {
 		// Add custom post types count action to WP Dashboard.
 		add_action( 'dashboard_glance_items', array( $this, 'custom_posttype_glance_items' ) );
 
-		// Options
+		// Options.
 		add_action( 'admin_init', array( $this, 'options_settings' ) );
 
 		// Changes in Attachments.
@@ -182,17 +185,12 @@ class CCA_WPAdmin {
 	 * @return void
 	 */
 	public function custom_login_logo() {
+		$base_url = CLOSEAD_PLUGIN_URL . 'includes/images/';
 		echo '<style type="text/css">
-		h1 a { background-image:url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/logo-closemarketing.svg) !important; }
-		body.login {background: #99DC8F url(' . esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) . '/images/admin-cortina-fondo.png);
-			background-repeat: no-repeat;
-			background-position: left;
+		h1 a { background-image:url(' . esc_url( $base_url . 'logo-wp.svg' ) . ') !important; }
+		body.login {background: #273C4F url(' . esc_url( $base_url . 'admin-cortina-fondo.png' ) . ') no-repeat center center fixed;
 		}
-		.login h1 a {
-			background-size: 211px;
-			height: 37px;
-			width: 211px;
-		}
+		.login h1 a { background-size: 120px; height: 120px; width: 120px; }
 		.login label {color:#294022;}
 		.login form { background: white; border: 3px solid #84ce6d;}
 		.wp-core-ui .button-primary {background-color: #294022; border-color: #294022;}
@@ -604,4 +602,3 @@ class CCA_WPAdmin {
 
 }
 
-new CCA_WPAdmin();
