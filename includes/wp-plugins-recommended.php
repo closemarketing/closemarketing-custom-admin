@@ -104,8 +104,8 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Easy WP SMTP',
-			'slug'     => 'easy-wp-smtp',
+			'name'     => 'FluentSMTP',
+			'slug'     => 'fluentsmtp',
 			'required' => false,
 		),
 
@@ -146,12 +146,6 @@ function cmk_register_required_plugins() {
 		),
 
 		array(
-			'name'     => 'Google Apps Login',
-			'slug'     => 'google-apps-login',
-			'required' => false,
-		),
-
-		array(
 			'name'     => 'Maintenance',
 			'slug'     => 'maintenance',
 			'required' => false,
@@ -163,8 +157,8 @@ function cmk_register_required_plugins() {
 			'required' => true,
 		),
 		array(
-			'name'     => 'GravityForms for Mailerlite',
-			'slug'     => 'connector-gravityforms-mailerlite',
+			'name'     => 'FormsCRM',
+			'slug'     => 'formscrm',
 			'required' => false,
 		),
 		array(
@@ -177,28 +171,19 @@ function cmk_register_required_plugins() {
 
 	// Generic.
 	$plugins_generic = array(
-
-		array(
-			'name'     => 'Meta box',
-			'slug'     => 'meta-box',
-			'required' => true,
-		),
-
 		array(
 			'name'     => 'Regenerate Thumbnails',
 			'slug'     => 'regenerate-thumbnails',
 			'required' => false,
 		),
-
 		array(
 			'name'        => 'WordPress SEO by Yoast',
 			'slug'        => 'wordpress-seo',
 			'is_callable' => 'wpseo_init',
 			'required'    => false,
 		),
-
 		array(
-			'name'     => 'WordPress SEO Plugin – Rank Math',
+			'name'     => 'WordPress SEO Plugin - Rank Math',
 			'slug'     => 'seo-by-rank-math',
 			'required' => true,
 		),
