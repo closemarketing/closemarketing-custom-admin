@@ -1,6 +1,7 @@
 .distignore
 .editorconfig
 .git
+.github
 .gitignore
 .travis.yml
 circle.yml
