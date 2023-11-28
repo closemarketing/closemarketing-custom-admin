@@ -18,7 +18,6 @@ class CCA_Optimizer {
 	 * Construct of Class
 	 */
 	public function __construct() {
-
 		// Remove version WordPress.
 		remove_action( 'wp_head', 'wp_generator' );
 

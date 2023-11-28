@@ -64,6 +64,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 = 1.12.0 =
 *   Updated login background.
 *   Move optimization functions for all websites not only Genesis.
+*   Added menu Patterns in Appearance menu.
 
 = 1.11 =
 *   Disables Feed.
