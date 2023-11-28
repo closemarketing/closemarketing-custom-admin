@@ -18,8 +18,8 @@ class CCA_WPAdmin {
 	 * Construct of Class
 	 */
 	public function __construct() {
-		// Customizes Admin.
-		add_action( 'admin_head', array( $this, 'hide_menu_editor' ) );
+		// Add patterns to admin menu.
+		add_action( 'admin_menu', array( $this, 'patterns_admin_menu' ) );
 
 		// Disables XML RPC for security.
 		add_filter( 'xmlrpc_enabled', '__return_false' );
@@ -93,10 +93,6 @@ class CCA_WPAdmin {
 	}
 
 	/**
-	 * # Functions
-	 * ---------------------------------------------------------------------------------------------------- */
-
-	/**
 	 * Customizes the dashboard.
 	 *
 	 * @return void
@@ -106,22 +102,14 @@ class CCA_WPAdmin {
 	}
 
 	/**
-	 * Hide menus for editor
+	 * Add Patterns to admin menu
 	 *
 	 * @return void
 	 */
-	public function hide_menu_editor() {
-		$role_object = get_role( 'editor' );
-		if ( ! is_null( $role_object ) ) {
-			$role_object->add_cap( 'edit_theme_options' );
-		}
-
-		if ( current_user_can( 'editor' ) ) {
-			remove_submenu_page( 'themes.php', 'themes.php' ); // hide the theme selection submenu.
-			remove_submenu_page( 'themes.php', 'customize.php?return=%2Fwp-admin%2Ftools.php&#038;autofocus%5Bcontrol%5D=background_image' ); // hide the background submenu.
-			// these are theme-specific. Can have other names or simply not exist in your current theme.
-			remove_submenu_page( 'themes.php', 'yiw_panel' );
-		}
+	public function patterns_admin_menu() {
+		global $submenu;
+		$permalink               = admin_url( 'edit.php' ) . '?post_type=wp_block';
+		$submenu['themes.php'][] = array( __( 'Patterns', 'closemarketing-custom-admin' ), 'edit_posts', $permalink );
 	}
 
 	/**
