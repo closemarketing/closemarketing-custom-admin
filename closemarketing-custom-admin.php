@@ -26,6 +26,7 @@ load_plugin_textdomain( 'closemarketing-custom-admin', false, dirname( plugin_ba
 // Includes Libraries for Closemarketing.
 require_once CLOSEAD_PLUGIN_PATH . 'includes/class-cca-wpadmin.php';
 require_once CLOSEAD_PLUGIN_PATH . 'includes/class-cca-optimizer.php';
+require_once CLOSEAD_PLUGIN_PATH . 'includes/class-cca-nexus.php';
 
 // Plugins recommended.
 require_once CLOSEAD_PLUGIN_PATH . 'includes/class-tgm-plugin-activation.php';

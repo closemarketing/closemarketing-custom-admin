@@ -1,92 +1,160 @@
 <?php
+/**
+ * Nexus functions
+ *
+ * Has functions optimize the WordPress
+ *
+ * @author   closemarketing
+ * @category Functions
+ * @package  Admin
+ */
+
+/**
+ * Class for admin fields
+ */
+class CCA_Nexus {
 
 	/**
-	 * Fetches WordPress site data including site URL, WordPress version, PHP version, and active plugins.
-	 * Returns this information in JSON format and sends it to a specified external URL via POST request.
-	 *
-	 * @return void
+	 * Construct of Class
 	 */
-	function get_wordpress_data() {
-		$site_url = get_site_url();
-		$wp_version = get_bloginfo('version');
-		$php_version = phpversion();
-		$plugins = get_plugins();
-		$plugin_data = [];
-
-		foreach ( $plugins as $slug => $plugin ) {
-			$plugin_info = [
-					'name'        => $plugin['Name'],
-					'description' => $plugin['Description'],
-					'slug'        => $slug,
-					'version'     => $plugin['Version'],
-					'active'      => is_plugin_active( $slug ),
-			];
-
-			$plugin_data[] = $plugin_info;
-		}
-
-		$data = [
-			'site_url'         => $site_url,
-			'wordpress_version' => $wp_version,
-			'php_version'      => $php_version,
-			'plugins'          => $plugin_data,
-		];
-
-		$json_data = json_encode($data);
-
-		$url = 'url/api/installations';
-
-		$response = wp_remote_post( $url, [
-			'body'    => $json_data,
-			'headers' => [
-					'Content-Type' => 'application/json',
-			],
-			'timeout' => 15,
-		]);
-
-		if ( is_wp_error( $response ) ) {
-			$error_message = $response->get_error_message();
-			error_log("Error en la solicitud POST: $error_message");
-		} else {
-			$body = wp_remote_retrieve_body( $response );
-			$status_code = wp_remote_retrieve_response_code( $response );
-
-			$response_data = json_decode($body, true);
-		}
+	public function __construct() {
+		add_action( 'activated_plugin', array( $this, 'on_activated_deactivated' ), 10, 1 );
+		add_action( 'deactivated_plugin', array( $this, 'on_activated_deactivated' ) );
+		add_action( 'after_switch_theme', array( $this, 'on_activated_deactivated' ) );
+		add_action( 'upgrader_process_complete', array( $this, 'on_plugin_updated' ), 10, 2 );
 	}
 
 	/**
-	 * Triggered when a plugin is activated.
+	 * Triggered when a plugin is activated or deactivated.
 	 *
-	 * @param string $plugin The plugin file path.
 	 * @return void
 	 */
-	function on_plugin_activated($plugin) {
-		get_wordpress_data();
+	public function on_activated_deactivated() {
+		$this->send_data();
 	}
-	add_action('activated_plugin', 'on_plugin_activated');
-
-	/**
-	 * Triggered when a plugin is deactivated.
-	 *
-	 * @param string $plugin
-	 * @return void
-	 */
-	function on_plugin_deactivated($plugin) {
-		get_wordpress_data();
-	}
-	add_action('deactivated_plugin', 'on_plugin_deactivated');
 
 	/**
 	 * Triggered when a plugin is updated.
-	 * @param object $upgrader_object 
-	 * @param array  $options         
+	 *
+	 * @param object $upgrader_object The upgrader object.
+	 * @param array  $options         The options array.
 	 * @return void
 	 */
-	function on_plugin_updated($upgrader_object, $options) {
-		if (isset($options['action']) && $options['action'] == 'update' && isset($options['plugins'])) {
-			get_wordpress_data();
+	public function on_plugin_updated( $upgrader_object, $options ) {
+		if ( isset( $options['action'] ) && 'update' === $options['action'] && isset( $options['plugins'] ) ) {
+			$this->send_data();
 		}
 	}
-	add_action('upgrader_process_complete', 'on_plugin_updated', 10, 2);
-?>
+
+	/**
+	 * Send data to external URL
+	 *
+	 * @return void
+	 */
+	private function send_data() {
+		if ( $this->is_local_installation() ) {
+			return;
+		}
+		$installation_data = $this->get_installation_data();
+
+		error_log( 'wp_json_encode( $installation_data ): ' . print_r( wp_json_encode( $installation_data ), true ) );
+
+		$url = 'local' === wp_get_environment_type() ? 'http://127.0.0.1:8000/' : 'https://nexus.close.red/';
+		$url .= 'api/v1/installations';
+
+		$response = wp_remote_post(
+			$url,
+			array(
+				'body'    => wp_json_encode( $installation_data ),
+				'headers' => array(
+					'Content-Type' => 'application/json',
+				),
+				'timeout' => 15,
+			)
+		);
+
+		if ( is_wp_error( $response ) ) {
+			$error_message = $response->get_error_message();
+			error_log( "Error in POST $error_message" );
+		}
+	}
+
+	/**
+	 * Check if the installation is local.
+	 *
+	 * @return bool
+	 */
+	private function is_local_installation() {
+		if ( defined( 'WP_TESTING_NEXUS' ) && WP_TESTING_NEXUS ) {
+			return false;
+		}
+
+		if ( 'local' === wp_get_environment_type() ) {
+			return true;
+		}
+
+		$site_url = get_site_url();
+		if ( false !== strpos( '.local', $site_url ) ) {
+			return true;
+		}
+
+		if ( false !== strpos( 'localhost', $site_url ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Fetches installation data.
+	 * Returns this information in JSON format and sends it to a specified external URL via POST request.
+	 *
+	 * @return array
+	 */
+	private function get_installation_data() {
+		$site_url    = get_site_url();
+		$wp_version  = get_bloginfo( 'version' );
+		$php_version = phpversion();
+		$plugins     = get_plugins();
+		$plugin_data = array();
+
+		foreach ( $plugins as $slug => $plugin ) {
+			$plugin_slug = explode( '/', $slug );
+			$plugin_slug = $plugin_slug[0] ?? $slug;
+
+			$plugin_data[] = array(
+				'name'        => $plugin['Name'],
+				'description' => $plugin['Description'],
+				'slug'        => $plugin_slug,
+				'version'     => $plugin['Version'],
+				'active'      => is_plugin_active( $slug ),
+			);
+		}
+
+		// Add the theme data.
+		$themes       = wp_get_themes();
+		$theme_data   = array();
+		$actual_theme = wp_get_theme();
+		$theme_slug   = $actual_theme->get_stylesheet();
+
+		foreach ( $themes as $slug => $theme ) {
+			$theme_data[] = array(
+				'name'        => $theme->get( 'Name' ),
+				'description' => $theme->get( 'Description' ),
+				'slug'        => $slug,
+				'version'     => $theme->get( 'Version' ),
+				'active'      => $theme_slug === $slug,
+			);
+		}
+
+		return array(
+			'site_url'          => $site_url,
+			'wordpress_version' => $wp_version,
+			'php_version'       => $php_version,
+			'plugins'           => $plugin_data,
+			'themes'            => $theme_data,
+		);
+	}
+}
+
+new CCA_Nexus();
