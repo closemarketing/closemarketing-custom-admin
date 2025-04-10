@@ -3276,7 +3276,8 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 
 						return $result;
 					}
-
+					
+					
 					/**
 					 * Processes the bulk installation of plugins.
 					 *
