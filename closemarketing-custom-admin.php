@@ -5,7 +5,7 @@
  * Description: Enhacements WordPress admin for CLOSE webs.
  * Author: closemarketing
  * Author URI: https://close.marketing/
- * Version: 1.12.0
+ * Version: 1.12.1
  * Text Domain: closemarketing-custom-admin
  * Domain Path: /languages
  * License: GNU General Public License version 3.0
@@ -14,7 +14,7 @@
  * @package WordPress
  */
 
-define( 'CLOSEAD_VERSION', '1.12.0' );
+define( 'CLOSEAD_VERSION', '1.12.1' );
 define( 'CLOSEAD_PLUGIN', __FILE__ );
 define( 'CLOSEAD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'CLOSEAD_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );

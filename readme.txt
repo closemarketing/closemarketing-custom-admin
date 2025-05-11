@@ -61,6 +61,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/closemarketing-custom-admin)
 
 == Changelog ==
+= 1.12.1 =
+*   Added Nexus information.
+
 = 1.12.0 =
 *   Updated login background.
 *   Move optimization functions for all websites not only Genesis.

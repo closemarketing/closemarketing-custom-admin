@@ -13,7 +13,6 @@
  * Class for admin fields
  */
 class CCA_Nexus {
-
 	/**
 	 * Construct of Class
 	 */
