@@ -50,7 +50,7 @@ class CCA_Nexus {
 	 *
 	 * @return void
 	 */
-	private function send_data() {
+	public function send_data() {
 		if ( $this->is_local_installation() ) {
 			return;
 		}

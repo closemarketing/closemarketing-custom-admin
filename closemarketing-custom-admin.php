@@ -47,3 +47,25 @@ if ( basename( get_template_directory() ) === 'genesis' ) {
 
 new CCA_WPAdmin();
 new CCA_Optimizer();
+
+/**
+ * Add a custom action link to the plugin.
+ *
+ * @param array $links Existing plugin action links.
+ * @return array Modified plugin action links.
+ */
+function closead_add_nexus_action_link( $links ) {
+	$url = admin_url( 'admin-ajax.php?action=send_data_to_nexus' );
+	$links['send_to_nexus'] = '<a href="' . esc_url( $url ) . '">' . __( 'Send Data to Nexus', 'closemarketing-custom-admin' ) . '</a>';
+	return $links;
+}
+
+// Hook into the plugin action links.
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'closead_add_nexus_action_link' );
+
+// Add an AJAX action to handle the request.
+add_action( 'wp_ajax_send_data_to_nexus', function () {
+	$nexus = new CCA_Nexus();
+	$nexus->send_data();
+	wp_send_json_success( __( 'Data sent to Nexus successfully.', 'closemarketing-custom-admin' ) );
+} );
