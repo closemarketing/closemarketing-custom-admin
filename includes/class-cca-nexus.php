@@ -126,7 +126,7 @@ class CCA_Nexus {
 				'description' => $plugin['Description'],
 				'slug'        => $plugin_slug,
 				'version'     => $plugin['Version'],
-				'active'      => is_plugin_active( $slug ),
+				'is_active'   => is_plugin_active( $slug ),
 			);
 		}
 
@@ -142,16 +142,16 @@ class CCA_Nexus {
 				'description' => $theme->get( 'Description' ),
 				'slug'        => $slug,
 				'version'     => $theme->get( 'Version' ),
-				'active'      => $theme_slug === $slug,
+				'is_active'   => $theme_slug === $slug,
 			);
 		}
 
 		return array(
-			'site_url'          => $site_url,
-			'wordpress_version' => $wp_version,
-			'php_version'       => $php_version,
-			'plugins'           => $plugin_data,
-			'themes'            => $theme_data,
+			'site_url'    => $site_url,
+			'wp_version'  => $wp_version,
+			'php_version' => $php_version,
+			'plugins'     => $plugin_data,
+			'themes'      => $theme_data,
 		);
 	}
 }
