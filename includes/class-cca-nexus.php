@@ -51,7 +51,7 @@ class CCA_Nexus {
 	 * @return void
 	 */
 	public function send_data() {
-		if ( $this->is_local_installation() ) {
+		if ( $this->is_dev_installation() ) {
 			return;
 		}
 		$installation_data = $this->get_installation_data();
@@ -83,12 +83,12 @@ class CCA_Nexus {
 	 *
 	 * @return bool
 	 */
-	private function is_local_installation() {
+	private function is_dev_installation() {
 		if ( defined( 'WP_TESTING_NEXUS' ) && WP_TESTING_NEXUS ) {
 			return false;
 		}
 
-		if ( 'local' === wp_get_environment_type() ) {
+		if ( 'local' === wp_get_environment_type() || 'development' === wp_get_environment_type() || 'staging' === wp_get_environment_type() ) {
 			return true;
 		}
 
