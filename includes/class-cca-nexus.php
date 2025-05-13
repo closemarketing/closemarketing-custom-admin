@@ -56,8 +56,6 @@ class CCA_Nexus {
 		}
 		$installation_data = $this->get_installation_data();
 
-		error_log( 'wp_json_encode( $installation_data ): ' . print_r( wp_json_encode( $installation_data ), true ) );
-
 		$url = 'local' === wp_get_environment_type() ? 'http://127.0.0.1:8000/' : 'https://nexus.close.red/';
 		$url .= 'api/v1/installations';
 
