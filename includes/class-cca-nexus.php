@@ -141,15 +141,17 @@ class CCA_Nexus {
 				'slug'        => $slug,
 				'version'     => $theme->get( 'Version' ),
 				'is_active'   => $theme_slug === $slug,
+				'is_parent'   => $theme->parent() ? true : false,
 			);
 		}
 
 		return array(
-			'site_url'    => $site_url,
-			'wp_version'  => $wp_version,
-			'php_version' => $php_version,
-			'plugins'     => $plugin_data,
-			'themes'      => $theme_data,
+			'site_url'     => $site_url,
+			'wp_version'   => $wp_version,
+			'php_version'  => $php_version,
+			'is_multisite' => is_multisite(),
+			'plugins'      => $plugin_data,
+			'themes'       => $theme_data,
 		);
 	}
 }
