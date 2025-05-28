@@ -3,9 +3,9 @@ Contributors: closemarketing, davidperez, sacrajaimez, alexbreagarcia
 Tags: custom-admin
 Donate link: https://close.marketing/go/donate/
 Requires at least: 5.0
-Tested up to: 6.4
-Stable tag: 1.12.0
-Version: 1.12.0
+Tested up to: 6.8
+Stable tag: 1.12.1
+Version: 1.12.1
 
 Custom admin enhacements for Closemarketing Webs in WordPress.
 
