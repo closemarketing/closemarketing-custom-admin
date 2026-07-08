@@ -61,6 +61,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 [Official Repository Github](https://github.com/closemarketing/closemarketing-custom-admin)
 
 == Changelog ==
+= 1.12.2 =
+*   Added option to disable failed update email notifications to admin email.
+
 = 1.12.1 =
 *   Added Nexus information.
 
