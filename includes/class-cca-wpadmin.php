@@ -72,6 +72,13 @@ class CCA_WPAdmin {
 		// Options.
 		add_action( 'admin_init', array( $this, 'options_settings' ) );
 
+		// Disable update failure emails to admin.
+		if ( 'on' === get_option( 'ccaa_deactive_update_emails' ) ) {
+			add_filter( 'auto_core_update_send_email', '__return_false' );
+			add_filter( 'auto_plugin_update_send_email', '__return_false' );
+			add_filter( 'auto_theme_update_send_email', '__return_false' );
+		}
+
 		// Changes in Attachments.
 		add_action( 'admin_init', array( $this, 'imagelink_setup' ), 10 );
 		add_action( 'add_attachment', array( $this, 'set_image_meta_upon_image_upload' ) );
@@ -391,6 +398,20 @@ class CCA_WPAdmin {
 		);
 
 		register_setting( 'general', 'ccaa_deactive_custom_login', 'esc_attr' );
+
+		// Option Deactivate update failure emails.
+		add_settings_field(
+			'ccaa_deactive_update_emails', // Option ID.
+			__( 'Deactivate update failure emails', 'closemarketing-custom-admin' ), // Label.
+			array( $this, 'options_callback' ), // !important - This is where the args go!.
+			'general', // Page it will be displayed (General Settings).
+			'cmk_options', // Name of our section.
+			array(
+				'ccaa_deactive_update_emails', // Should match Option ID.
+			)
+		);
+
+		register_setting( 'general', 'ccaa_deactive_update_emails', 'esc_attr' );
 	}
 
 	/**
